@@ -1,0 +1,22 @@
+#feedWindow{
+    /*height: 50%;*/
+}
+
+#ndrow{
+    position: absolute;
+    width: inherit;
+    /*top: 50%*/
+}
+.button {
+    background-color: #b11ab1;
+    border-radius: 4px;
+    /*box-shadow: 10px 10px 5px #d9d9d9;*/
+    border: 1px solid rgba(255, 255, 255, 0);
+				
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    height: 200px;
+  
+				
+}
