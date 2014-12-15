@@ -28,6 +28,13 @@ main{
     margin-top:200px;
     
 }
+#personalInfo{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 75%;
+    
+}
 .col-3of10{
     width: 33.3333333333%;
 }
@@ -42,6 +49,12 @@ main{
         width: 90%;
     
     }
+    #personalInfo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    
+}
 }
 @media (max-width: 990px){
     main{
@@ -50,6 +63,12 @@ main{
         width: 95%;
     
     }
+    #personalInfo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    
+}
 }
 @media (max-width: 770px){
     main{
@@ -63,5 +82,11 @@ main{
     }
 .col-1p5of10{
     width: 100%;
+    }
+    #personalInfo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    
     }
 }

@@ -1,16 +1,8 @@
-#feedWindow{
-    /*height: 50%;*/
-}
-
-#ndrow{
-    position: absolute;
-    width: inherit;
-    /*top: 50%*/
-}
+/*This Styles the div boxes gives them their rounded edges and the transparent borders*/
 .button {
     background-color: #b11ab1;
     border-radius: 4px;
-    /*box-shadow: 10px 10px 5px #d9d9d9;*/
+    box-shadow: 10px 10px 6px rgb(136, 135, 135);
     border: 1px solid rgba(255, 255, 255, 0);
 				
   -moz-background-clip: padding;     /* Firefox 3.6 */
@@ -19,4 +11,69 @@
     height: 200px;
   
 				
+}
+/*The feed window has a diffrent height because its going to contain ny news feeds on posts etc. the z index is used to push the card foward because when the second rows moved up it stays ontop of it if the z index isint increased*/
+#feedWindow{
+    height: 400px;
+    position: relative;
+    z-index: 1;
+}
+/*The positioning for the second row is corrected here because of the height of the feed you ned to move the second row up by about half the height of the feed window; */
+#secondRow{
+    position: relative;
+    top: -200px;
+   
+}
+body{
+    background: linear-gradient(rgba(229, 228, 228, 0.94), rgba(173, 167, 167, 0.69));
+}
+#leftPersonalInfo{
+    display: inline-block;
+}
+#leftPersonalInfo p{
+    display: inline-block;
+    float: right;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 12px;
+}
+#rightPersonalInfo{
+    display: inline-block;
+    position: absolute;
+    right:0%;
+}
+
+#contactIcons{
+    display: inline-block;
+    position: absolute;
+    margin-top: 14px;
+    right: 0%;
+}
+#contactInfo {
+    position: relative;
+    font-size: 12px;
+    top: 25px;
+}
+#contactInfo .phoneicon{
+    position: relative;
+    top: 5px;
+
+    /*box-shadow: 1px 1px 6px rgb(136, 135, 135);*/
+}
+
+
+
+
+
+
+
+
+
+/*Media Querys*/
+@media (max-width: 770px){
+    #ndrow{
+    position: relative;
+    top: 1px;
+    z-index: 2;
+}
 }

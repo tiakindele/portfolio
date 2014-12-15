@@ -1,1 +1,6 @@
 The items on the page(the buttons that refer to the views) all together take up 80% of the screen.
+
+
+
+insperation
+http://brkor.nazwa.pl/resume-dashboard/
