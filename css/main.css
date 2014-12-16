@@ -27,6 +27,7 @@
 body{
     background: linear-gradient(rgba(229, 228, 228, 0.94), rgba(173, 167, 167, 0.69));
 }
+/*Affects the left side of the top pannel*/
 #leftPersonalInfo{
     display: inline-block;
 }
@@ -37,23 +38,26 @@ body{
     margin-top: 15px;
     font-size: 12px;
 }
+/*Affects the right side of the top pannel*/
 #rightPersonalInfo{
     display: inline-block;
     position: absolute;
     right:0%;
 }
-
+/*Affects the coontact icons in the top pannel */
 #contactIcons{
     display: inline-block;
     position: absolute;
     margin-top: 14px;
     right: 0%;
 }
+/*Used to style the text in the right pannel of the screen*/
 #contactInfo {
     position: relative;
     font-size: 12px;
     top: 25px;
 }
+/*used to move the phone icon down abit*/
 #contactInfo .phoneicon{
     position: relative;
     top: 5px;
