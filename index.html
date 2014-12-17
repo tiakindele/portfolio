@@ -1,66 +1,83 @@
 <!Doctype>
 <html>
     <head>
-        <!--Information relevant to loading the page especially with loading the site on mobile devices-->
+        <!--Information relevant to loading the page especially with loading the site with required dependencies-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"  href="css/main.css">
         <link rel="stylesheet"  href="css/grid.css">
         <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
         <title>Dolapo Toki</title>
     </head>
-    <boby>
-        <!--This is for the top of the screen where the short bio is loaded on the left and right section-->
-        <div id="personalInfo">
-            <!--Left pannnel holds picture and short bio-->
-            <div id="leftPersonalInfo">
-               <img src="img/profile%20pic.jpg" width="80" alt="profile pic">
-                <!--Short Bio-->
-                <p>Hi there my name's <br><strong>Dolapo Toki</strong><br> and im a <em>softwere developer</em> from vancouver bc </p>
-            </div>
-            <!--Right pannel holds contact information-->
-            <div id="rightPersonalInfo">
-                <!--Links to my social media pages-->
-                <div id="contactIcons">
-                    <img src="img/icons/google+.svg" width="25px">
-                    <img src="img/icons/twitter%20round.svg" width="25px">
+    <body>
+        
+    <header>
+            <!--This is for the top of the screen where the short bio is loaded on the left and right section-->
+            <div id="personalInfo">
+                <!--Left pannnel holds picture and short bio-->
+                <div id="leftPersonalInfo">
+                   <img src="img/profile%20pic.jpg" width="80" alt="profile pic">
+                    <!--Short Bio-->
+                    <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and im a</span> <em>Softwere Developer and Designer</em> <span class="light">from Vancouver<br> BC Canada </span></p>
                 </div>
-                <!--Personal contact details -->
-                <div id="contactInfo">
-                    <p>dolpapotoki@gmail.com &#160; <a href="mailto:dolapotoki@gmail.com"><img src="img/icons/letter%20envelope.svg" width="16px"></a>
-                        &#160;778-233-9116 &#160;<a href="tel:+7782339116"><img class="phoneicon" src="img/icons/Google%20Nexus%205%20Vector%20Mockup.svg" width="10px"></a>
-                    </p>
+                <!--Right pannel holds contact information-->
+                <div id="rightPersonalInfo">
+                    <!--Links to my social media pages-->
+                    <div id="contactIcons">
+                        <img src="img/icons/google+.svg" width="25px">
+                        <img src="img/icons/twitter%20round.svg" width="25px">
+                        <img src="img/icons/Android%20button.svg" width="25px">
+                        <img src="img/icons/githubButton.svg" width="25px">
+                    </div>
+                    <!--Personal contact details -->
+                    <div id="contactInfo">
+                        <p ><span class="light">dolpapotoki@gmail.com</span> &#160; <a href="mailto:dolapotoki@gmail.com"><img src="img/icons/letter%20envelope.svg" width="16px"></a>
+                            &#160;<span class="light">778-233-9116</span> &#160;<a href="tel:+7782339116"><img class="phoneicon" src="img/icons/Google%20Nexus%205%20Vector%20Mockup.svg" width="10px"></a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
+        
         <main>
             <!--This enables the grid structure where going to use-->
             <div class="grid" id="firstRow">
                 <!--This enables the 3-10 grid structure-->
-                <div class="col-3of10 button" id="personalButton">
-                   <p>Button</p>
+                <div class="col-3of10 button" id="profileButton">
+                    <p>Profile</p>
+                    <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
                 </div>
                 <!--This enables the 3-10 grid structure-->
                 <div class="col-3of10 button" id="experienceButton">
-                   <p>Button</p>
+                  <p>Experrience</p>
+                    <span class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span>
                 </div>
                 <!--This enables the 3-10 grid structure-->
-                <div class="col-3of10 button" id="feedWindow">
-                   <p>Button</p>
+                <div class="col-3of10" id="feedWindow">
+                    <p>Google+ Feed</p>
+                    <!--This loads the feed into the box using the widget0 js-->
+                    <div id="gpluswidget" data-id="100138189521588320824" data-key="AIzaSyC3pRnGiAe2hfbD1abYQOV7myn8Q5_mxrY" data-posts="10" data-lang="yes" data-bkg="transparent" data-padding="20" data-radius="0" data-txt="fffefe" data-link="36c" data-favicon="yes" data-header="no" data-footer="no" data-page="no"></div>
                 </div>
+                <!--Place the code below where you want the widget to render-->
              </div>
             <div class="grid" id="secondRow">
                 <!--This enables the 1p5of10 grid structure-->
                 <div class="col-1p5of10 button" id="contactButton" >
-                   <p>Button</p>
+                  <p>Contact me</p>
+                    <span class="glyphicon glyphicon-send white" aria-hidden="true"></span>
                 </div>
                 <!--This enables the 3of10 grid structure-->
                 <div class="col-3of10 button" id="educationButton" >
-                   <p>Button</p>
+                   <p>Education</p>
+                    <span class="glyphicon glyphicon-book white" aria-hidden="true"></span>
                 </div>
                 <!--This enables the 1p5of10 grid structure-->
                  <div class="col-1p5of10 button" id="resumeButton" >
-                   <p>Button</p>
+                   <p>Resume</p>
+                    <span class="glyphicon glyphicon-download white" aria-hidden="true"></span>
                 </div>
             </div>
             <div class="grid">
@@ -79,10 +96,14 @@
             </div>
     
         </main>
-    </boby>
+    </body>
     <footer>
         
         
     </footer>
+    <!--this is used to load the modified widget0 script-->
+    <script type="text/javascript" src="js/widget0.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
 
 </html>
