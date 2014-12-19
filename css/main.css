@@ -3,6 +3,7 @@ body{
     /*background: linear-gradient(rgba(229, 228, 228, 0.94), rgba(173, 167, 167, 0.69));*/
      font-family: 'Open Sans', sans-serif;
      background: radial-gradient(#c9c9c9, #f0f0f0, #e5e5e5);
+    overflow: hidden;
 }
 .button {
     position: relative;
@@ -150,19 +151,28 @@ background-color:#ff8285;
 /*Begin indevidual styling for the carda--*/
 #profileButton{
     background-color: #009fd4;
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+
 }
 #ExperienceButton{
     background-color: #009fd4;
+    transition: background-color 0.4s ease;
 }
 #contactButton{
      background-color: #009fd4;
+    transition: background-color 0.4s ease;
 }
 #EducationButton{
     background-color: #009fd4;
+    transition: background-color 0.4s ease;
     
 }
 #resumeButton{
     background-color: #009fd4;
+    transition: background-color 0.4s ease;
 }
 #feedWindow{
     background-color: rgba(232, 6, 41, 0.94);
@@ -181,12 +191,39 @@ background-color:#ff8285;
 /*--End indevidual styling for the carda*/
 
 
+#profileButton:hover, #ExperienceButton:hover, #contactButton:hover,#EducationButton:hover, #resumeButton:hover {
+    background-color: rgba(93, 93, 93, 0.77);
+    box-shadow: 0px 0px 20px #f2ffaa;
+    cursor: pointer;
+}
+#profileButton:active, #ExperienceButton:active, #contactButton:active,#EducationButton:active, #resumeButton:active{
+    background-color: rgba(155, 155, 155, 0.93);
+}
+.leftDiaplayBox{
+    position: relative;
+    background-color: #b11ab1;
+    border-radius: 4px;
+    box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    border: 1px solid rgba(255, 255, 255, 0);
 
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    height: 400px;
 
+}
+.rightDisplayBox{
+    position: relative;
+    background-color: #b11ab1;
+    border-radius: 4px;
+    box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    border: 1px solid rgba(255, 255, 255, 0);
 
-
-
-
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    height: 400px;
+}
 
 /*Media Querys*/
 @media (max-width: 770px){
@@ -218,3 +255,203 @@ background-color:#ff8285;
     
     }
 }
+
+
+/*-------------------------------------------------------------------Ainimations------------------------------------------------------------------------*/
+.active {
+    display: block;
+    -webkit-animation: activate .5s ease;
+    -moz-animation: activate .5s ease;
+    -ms-animation: activate .5s ease;
+    -o-animation: activate .5s ease;
+    animation: activate .5s ease;
+}
+
+.deactivate {
+    -webkit-animation: remove .5s ease;
+    -moz-animation: remove .5s ease;
+    -ms-animation: remove .5s ease;
+    -o-animation: remove .5s ease;
+    animation: remove .5s ease;
+    opacity: 0;
+}
+.popin {
+    -webkit-animation: show-up 1.5s ease;
+    -moz-animation: show-up 1.5s ease;
+    -ms-animation: show-up 1.5s ease;
+    -o-animation: show-up 1.5s ease;
+    animation: show-up 1.5s ease;
+}
+.diaplay-none
+{
+    display: none;
+}
+
+@-webkit-keyframes show-up {
+from {
+    opacity:0;
+    -webkit-transform:translateX(-1.5em)
+}
+to {
+    opacity:1;
+    -webkit-transform:translateX(0)
+
+}}
+
+@-moz-keyframes show-up {
+from {
+    opacity:0;
+    -moz-transform:translateX(-1.5em)
+}
+to {
+    opacity:1;
+    -moz-transform:translateX(0)
+}}
+
+@-ms-keyframes show-up {
+from {
+    opacity:0;
+    -ms-transform:translateX(-1.5em)
+}
+to {
+    opacity:1;
+    -ms-transform:translateX(0)
+}}
+
+@-o-keyframes show-up {
+from {
+    opacity:0;
+    -o-transform:translateX(-1.5em)
+}
+to {
+    opacity:1;
+    -o-transform:translateX(0)
+}}
+
+@keyframes show-up {
+from {
+    opacity:0;
+    transform:translateX(-1.5em)
+}
+to {
+    opacity:1;
+    transform:translateX(0)
+}}
+
+
+
+
+@-webkit-keyframes remove {
+
+from {
+    opacity: 1;
+    -webkit-transform:scale(1)
+}
+to {
+    opacity: 0;
+    -webkit-transform:scale(.9);
+    display: none;
+}}
+
+@-moz-keyframes remove {
+from {
+    opacity: 1;
+    -moz-transform:scale(1)
+}
+to {
+    opacity: 0;
+    -moz-transform:scale(.9);
+    display: none;
+}}
+
+@-ms-keyframes remove {
+from {
+    opacity: 1;
+    -ms-transform:scale(1)
+}
+to {
+    opacity: 0;
+    -ms-transform:scale(.9);
+    display: none;
+}}
+
+@-o-keyframes remove {
+from {
+    opacity: 1;
+    -o-transform:scale(1)
+}
+to {
+    opacity: 0;
+    -o-transform:scale(.9);
+    display: none;
+}}
+
+@keyframes remove {
+from {
+    opacity: 1;
+    transform:scale(1)
+}
+to {
+    opacity: 0;
+    transform:scale(.9);
+        display: none;
+}}
+
+
+
+@-webkit-keyframes activate {
+
+from {
+    opacity: 0;
+    -webkit-transform:translateX(40px);
+}
+to {
+    opacity: 1;
+    -webkit-transform:translateX(0);
+    display: block !important;
+}}
+
+@-moz-keyframes activate {
+from {
+    opacity: 0;
+    -moz-transform:translateX(40px)
+}
+to {
+    opacity: 1;
+    -moz-transform:translateX(0);
+    display: block !important;
+}}
+
+@-ms-keyframes activate {
+from {
+    opacity: 0;
+    -ms-transform:translateX(40px)
+}
+to {
+    opacity: 1;
+    -ms-transform:translateX(0);
+    display: block !important;
+}}
+
+@-o-keyframes activate {
+from {
+    opacity: 0;
+    -o-transform:translateX(40px)
+}
+to {
+    opacity: 1;
+    -o-transform:translateX(0);
+    display: block !important;
+}}
+
+@keyframes activate {
+from {
+    opacity: 0;
+    transform:translateX(40px);
+
+}
+to {
+    opacity: 1;
+    transform:translateX(0);
+    display: block !important;
+}}

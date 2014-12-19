@@ -41,6 +41,12 @@ main{
 .col-1p5of10{
     width: 16.6666666666%;
 }
+.col-4of10{
+    width: 40%;
+}
+.col-6of10{
+    width: 60%;
+}
 
 @media (max-width: 1200px){
     main{
@@ -80,8 +86,14 @@ main{
     .col-3of10{
     width: 100%;
     }
-.col-1p5of10{
+    .col-1p5of10{
     width: 100%;
+    }
+    .col-4of10{
+    width: 50%;
+    }
+    .col-6of10{
+    width: 50%;
     }
     #personalInfo{
     margin-left: auto;
