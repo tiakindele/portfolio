@@ -21,7 +21,7 @@
                 <div id="leftPersonalInfo">
                    <img src="img/profile%20pic.jpg" width="80" alt="profile pic">
                     <!--Short Bio-->
-                    <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and im a</span> <em>Softwere Developer and Designer</em> <span class="light">from Vancouver<br> BC Canada </span></p>
+                    <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and im a</span> <em>Software Developer and Designer</em> <span class="light">from Vancouver<br> BC Canada </span></p>
                 </div>
                 <!--Right pannel holds contact information-->
                 <div id="rightPersonalInfo">
@@ -42,56 +42,103 @@
             </div>
         </header>
         
+
         <main>
+            <button type="button" id="backButton">fakebutton</button>
             <!--This enables the grid structure where going to use-->
-            <div class="grid" id="firstRow">
-                <!--This enables the 3-10 grid structure-->
-                <div class="col-3of10 button" id="profileButton">
-                    <p>Profile</p>
-                    <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
-                </div>
-                <!--This enables the 3-10 grid structure-->
-                <div class="col-3of10 button" id="experienceButton">
-                  <p>Experrience</p>
-                    <span class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span>
-                </div>
-                <!--This enables the 3-10 grid structure-->
-                <div class="col-3of10" id="feedWindow">
-                    <p>Google+ Feed</p>
-                    <!--This loads the feed into the box using the widget0 js-->
-                    <div id="gpluswidget" data-id="100138189521588320824" data-key="AIzaSyC3pRnGiAe2hfbD1abYQOV7myn8Q5_mxrY" data-posts="10" data-lang="yes" data-bkg="transparent" data-padding="20" data-radius="0" data-txt="fffefe" data-link="36c" data-favicon="yes" data-header="no" data-footer="no" data-page="no"></div>
-                </div>
-                <!--Place the code below where you want the widget to render-->
-             </div>
-            <div class="grid" id="secondRow">
-                <!--This enables the 1p5of10 grid structure-->
-                <div class="col-1p5of10 button" id="contactButton" >
-                  <p>Contact me</p>
-                    <span class="glyphicon glyphicon-send white" aria-hidden="true"></span>
-                </div>
-                <!--This enables the 3of10 grid structure-->
-                <div class="col-3of10 button" id="educationButton" >
-                   <p>Education</p>
-                    <span class="glyphicon glyphicon-book white" aria-hidden="true"></span>
-                </div>
-                <!--This enables the 1p5of10 grid structure-->
-                 <div class="col-1p5of10 button" id="resumeButton" >
-                   <p>Resume</p>
-                    <span class="glyphicon glyphicon-download white" aria-hidden="true"></span>
+            <div id= "mainMenu" class="active">
+                <div class="grid" id="firstRow">
+                    <!--This enables the 3-10 grid structure-->
+                    <div class="col-3of10 button" id="profileButton">
+                        <p>Profile</p>
+                        <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
+                    </div>
+                    <!--This enables the 3-10 grid structure-->
+                    <div class="col-3of10 button" id="experienceButton">
+                      <p>Experience</p>
+                        <span class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span>
+                    </div>
+                    <!--This enables the 3-10 grid structure-->
+                    <div class="col-3of10" id="feedWindow">
+                        <p>Google+ Feed</p>
+                        <!--This loads the feed into the box using the widget0 js-->
+                        <div id="gpluswidget" data-id="100138189521588320824" data-key="AIzaSyC3pRnGiAe2hfbD1abYQOV7myn8Q5_mxrY" data-posts="10" data-lang="yes" data-bkg="transparent" data-padding="20" data-radius="0" data-txt="fffefe" data-link="36c" data-favicon="yes" data-header="no" data-footer="no" data-page="no"></div>
+                    </div>
+                    <!--Place the code below where you want the widget to render-->
+                 </div>
+                <div class="grid" id="secondRow">
+                    <!--This enables the 1p5of10 grid structure-->
+                    <div class="col-1p5of10 button" id="contactButton" >
+                      <p>Contact me</p>
+                        <span class="glyphicon glyphicon-send white" aria-hidden="true"></span>
+                    </div>
+                    <!--This enables the 3of10 grid structure-->
+                    <div class="col-3of10 button" id="educationButton" >
+                       <p>Education</p>
+                        <span class="glyphicon glyphicon-book white" aria-hidden="true"></span>
+                    </div>
+                    <!--This enables the 1p5of10 grid structure-->
+                     <div class="col-1p5of10 button" id="resumeButton" >
+                       <p>Resume</p>
+                        <span class="glyphicon glyphicon-download white" aria-hidden="true"></span>
+                    </div>
                 </div>
             </div>
+
+
             <div class="grid">
+
                 <!--This containers are like windows that will display the information needed when the button that referrs to the div has been clicked-->
-                <div id="personal" class="displaybox">
+                <div id="profile-card" class="displaybox display-none">
+                    <div class="col-4of10 leftDiaplayBox">
+
+                         <p>Profile</p>
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
 
 
+                    </div>
                 </div>
                 <!--This containers are like windows that will display the information needed when the button that referrs to the div has been clicked-->
-                <div id="experience" class="displaybox">
+                <div id="experience-card" class="displaybox display-none">
+                    <div class="col-4of10 leftDiaplayBox">
+
+                        <p>Experience</p>
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
 
 
+                    </div>
+                </div>
+                <div id="contact-card" class="displaybox display-none">
+                    <div class="col-4of10 leftDiaplayBox">
+
+                        <p>Contact</p>
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
 
 
+                    </div>
+                </div>
+                <div id="education-card" class="displaybox display-none">
+                    <div class="col-4of10 leftDiaplayBox">
+
+                        <p>Education</p>
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
+
+
+                    </div>
+                </div>
+                <div id="resume-card" class="displaybox display-none">
+                    <div class="col-4of10 leftDiaplayBox">
+                        <p>Resume</p>
+
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
+
+
+                    </div>
                 </div>
             </div>
     
@@ -102,8 +149,9 @@
         
     </footer>
     <!--this is used to load the modified widget0 script-->
+    <script src="js/jquery-1.11.2.js"></script>
     <script type="text/javascript" src="js/widget0.js"></script>
-    <script src="js/jquery-2.1.1.js"></script>
     <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
 </html>
