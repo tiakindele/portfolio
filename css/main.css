@@ -199,11 +199,12 @@ background-color:#ff8285;
 #profileButton:active, #ExperienceButton:active, #contactButton:active,#EducationButton:active, #resumeButton:active{
     background-color: rgba(155, 155, 155, 0.93);
 }
-.leftDiaplayBox{
+.leftDisplayBox{
     position: relative;
-    background-color: #b11ab1;
+    background-color: rgba(31, 31, 31, 0.01);
     border-radius: 4px;
     box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    border: 1px solid rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0);
 
   -moz-background-clip: padding;     /* Firefox 3.6 */
@@ -214,7 +215,7 @@ background-color:#ff8285;
 }
 .rightDisplayBox{
     position: relative;
-    background-color: #b11ab1;
+    background-color: rgba(31, 30, 31, 0.92);
     border-radius: 4px;
     box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
     border: 1px solid rgba(255, 255, 255, 0);
@@ -246,6 +247,12 @@ background-color:#ff8285;
     font-size: 12px;
     
     }
+    #profilePicLarge{
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    }
+
 }
 @media (max-width :480px){
     #leftPersonalInfo p{
@@ -254,6 +261,18 @@ background-color:#ff8285;
         float: none;
     
     }
+}
+#backButton{
+    position:relative;
+    width: auto;
+	height: 40px;
+	background-color: #54aad1;
+	border: none;
+	border-radius: 4px;
+	color: white;
+}
+#profilePicLarge{
+    height: 100%;
 }
 
 
@@ -282,7 +301,7 @@ background-color:#ff8285;
     -o-animation: show-up 1.5s ease;
     animation: show-up 1.5s ease;
 }
-.diaplay-none
+.display-none
 {
     display: none;
 }

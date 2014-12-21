@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //This checkes what card is clicked ant then loads the corresponding card
+    $("#backButton").hide();
     var loadCard;
     $(".button").click(function(){
         var cardClicked=$(this).find("p").text();
@@ -34,15 +35,18 @@ $(document).ready(function(){
         $("#mainMenu").attr("class","deactivate");
         setTimeout(dothis,500);
         $("#"+loadCard).addClass("popin");
+        $("#backButton").addClass("popin");
 
     });
     function dothis(){
+        $("#backButton").show();
         $("#mainMenu").addClass("display-none");
     };
     // Back button this disables the -card and loads the the mainMenu cards
     $("#backButton").click(function(){
         $("#"+loadCard).addClass("display-none");
         $("#mainMenu").attr("class","active");
+        $("#backButton").hide();
 
     });
 

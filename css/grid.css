@@ -90,10 +90,10 @@ main{
     width: 100%;
     }
     .col-4of10{
-    width: 50%;
+    width: 100%;
     }
     .col-6of10{
-    width: 50%;
+    width: 100%;
     }
     #personalInfo{
     margin-left: auto;
