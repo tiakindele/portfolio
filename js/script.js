@@ -47,7 +47,18 @@ $(document).ready(function(){
         $("#"+loadCard).addClass("display-none");
         $("#mainMenu").attr("class","active");
         $("#backButton").hide();
+        goToDesccription();
 
     });
+    $(".button").click(function(){
+        setTimeout(goToButton,500);
+
+    });
+    function goToButton(){
+        window.location.href = '#toTheButton';
+    }
+    function goToDesccription(){
+        window.location.href = '#toTheDescription';
+    }
 
 });

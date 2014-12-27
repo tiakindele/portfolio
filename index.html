@@ -15,6 +15,7 @@
     <body>
         
     <header>
+         <a name="toTheDescription"></a>
             <!--This is for the top of the screen where the short bio is loaded on the left and right section-->
             <div id="personalInfo">
                 <!--Left pannnel holds picture and short bio-->
@@ -44,7 +45,8 @@
         
 
         <main>
-            <button type="button" id="backButton" class=""><span class="glyphicon glyphicon-chevron-left white" aria-hidden="true"></span> Back</button>
+            <a name="toTheButton"></a>
+            <button type="button" id="backButton"><span class="glyphicon glyphicon-chevron-left white" aria-hidden="true"></span>Back</button>
             <!--This enables the grid structure where going to use-->
             <div id= "mainMenu" class="active">
                 <div class="grid" id="firstRow">
@@ -68,7 +70,7 @@
                  </div>
                 <div class="grid" id="secondRow">
                     <!--This enables the 1p5of10 grid structure-->
-                    <div class="col-1p5of10 button" id="contactButton" >
+                    <div class="col-1p5of10 button" id="contactButton">
                       <p>Contact me</p>
                         <span class="glyphicon glyphicon-send white" aria-hidden="true"></span>
                     </div>
@@ -134,12 +136,22 @@
                 </div>
                 <div id="contact-card" class="displaybox display-none">
                     <div class="col-4of10 leftDisplayBox">
+                       <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Louis%20Riel%20Residence%2C%20Simon%20Fraser%20University%208888%20University%20Dr%20Burnaby%2C%20BC%20V5A%201S6%2C%20Canada&key=AIzaSyC3pRnGiAe2hfbD1abYQOV7myn8Q5_mxrY&zoom=16"></iframe>
 
-                        <p>Contact</p>
                     </div>
-                    <div class="col-6of10 rightDisplayBox">
+                    <div class="col-6of10 rightDisplayBox" >
+                        <div id="contact-cardMain">
+                            <form>
+                                <P><label class="leftLabel">Name</label><input class="rightLabel" type="text"></P>
+                                <P><label class="leftLabel">Email</label><input class="rightLabel"  type="email"></P>
+                                <P><label class="leftLabel">Subject</label><input class="rightLabel" type="text"></P>
+                                <P><label class="leftLabel">Message</label><textarea class="rightLabel"></textarea></P>
 
 
+
+                            </form>
+
+                        </div>
                     </div>
                 </div>
                 <div id="education-card" class="displaybox display-none">
