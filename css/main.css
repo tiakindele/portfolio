@@ -3,7 +3,7 @@ body{
     /*background: linear-gradient(rgba(229, 228, 228, 0.94), rgba(173, 167, 167, 0.69));*/
      font-family: 'Open Sans', sans-serif;
      background: radial-gradient(#c9c9c9, #f0f0f0, #e5e5e5);
-    overflow: hidden;
+     overflow: hidden;
 
 }
 .button {
@@ -18,11 +18,10 @@ body{
   background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
     height: 200px;
     
-  
 				
 }
 /*The feed window has a diffrent height because its going to contain ny news feeds on posts etc. the z index is used to push the card foward because when the second rows moved up it stays ontop of it if the z index is not increased*/
-#feedWindow{
+#projectWindow{
     border-radius: 4px;
     box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
     border: 2px solid rgba(255, 255, 255, 0);
@@ -41,12 +40,12 @@ body{
      
 }
 /*Affects the feed title*/
-#feedwindow > p{
+#projectwindow > p{
    display: inline-block;
     position: relative;
     top:20px;
     left: 20px;
-    font-size: 15px;
+    font-size:17px;
     
 }
 /*The positioning for the second row is corrected here because of the height of the feed you ned to move the second row up by about half the height of the feed window; */
@@ -120,7 +119,7 @@ em{
 /*--Editing Default bootstrap settings--*/
 .white{
     color: #e6e6e6;
-    font-size: 15px;
+    font-size: 20px;
 }
 /**/
 .button span{
@@ -159,29 +158,31 @@ background-color:#ff8285;
 
 }
 #ExperienceButton{
-    background-color: #009fd4;
+    background-color: #8c3;
     transition: background-color 0.4s ease;
 }
 #contactButton{
-     background-color: #009fd4;
+     background-color: #e6c32d;
     transition: background-color 0.4s ease;
 }
 #EducationButton{
-    background-color: #009fd4;
+    background-color: #e67e30;
     transition: background-color 0.4s ease;
     
 }
 #resumeButton{
-    background-color: #009fd4;
+    background-color: #0a9;
     transition: background-color 0.4s ease;
 }
-#feedWindow{
-    background-color: rgba(232, 6, 41, 0.94);
+#projectWindow{
+    background-color: rgba(222, 38, 67, 0.94);
+    transition: background-color 0.4s ease;
 }
 #gpluswidget{
     
 }
 .button p{
+    font-size: 17px;
     position: absolute;
     bottom: 20px;
     left: 15px;
@@ -189,10 +190,20 @@ background-color:#ff8285;
     
     
 }
+#designWork img{
+    position: relative;
+    top: 30%; 
+    width: 40%;
+    display:block;
+    margin:auto;
+}
+#designWork{
+    background: radial-gradient(rgb(255, 255, 255), #23c0dd, #2980cb);;
+}
 /*--End indevidual styling for the carda*/
 
 
-#profileButton:hover, #ExperienceButton:hover, #contactButton:hover,#EducationButton:hover, #resumeButton:hover {
+#profileButton:hover, #ExperienceButton:hover, #contactButton:hover,#EducationButton:hover, #resumeButton:hover,#projectWindow:hover {
     background-color: rgba(93, 93, 93, 0.77);
     box-shadow: 0px 0px 20px #f2ffaa;
     cursor: pointer;
@@ -254,6 +265,12 @@ background-color:#ff8285;
     left: 0px;
     height: 100%;
     }
+    #contact-card .leftDisplayBox{
+        width: 90%;
+    }
+    body{
+        overflow: auto;
+    }
 
 }
 @media (max-width :480px){
@@ -279,13 +296,20 @@ background-color:#ff8285;
 /*Styling for profile-card*/
 #profile-cardMain {
     position: relative;
-    top:15%;
+    top:8%;
 
 }
 table{
     width: 90%;
     margin: auto ;
 
+}
+#education-cardMain{
+     position: relative;
+    top:8%;
+}
+#education-card table{
+    position: relative;
 }
 tr{
     border-collapse: separate;
@@ -294,7 +318,9 @@ tr{
 .spacer{
    height: 2em;
 }
-
+.miniSpacer{
+   height: 0.2em;
+}
 .leftColumn{
     width: 30%;
     padding:6px;
@@ -302,6 +328,16 @@ tr{
     border-radius: 4px;
     background-color: rgba(53, 176, 230, 0.8);
     z-index: 2;
+    display: inline block;
+}
+.leftColumnHide{
+    width: 30%;
+    padding:6px;
+    color: white;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 2;
+    display: inline block;
 }
 .rightColumn{
     color: white;
@@ -339,44 +375,52 @@ tr{
     margin-left: 5%;
 
 }
-.rightDisplayBox span{
-    position: absolute;
-    top:10%;
-    right: 10%;
+.rightDisplayBox> span{
+    position: relative;
+    left:40%;
+    top:0.8em;
+    
 }
 .leftLabel{
     width: 30%;
-    padding:4px;
+    
     color: white;
     border-radius: 4px;
     background-color: rgba(53, 176, 230, 0.8);
     z-index: 2;
-    font-size: 15px;
-    font-weight: 100;
     position: absolute;
-    left: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius:0px;
     text-align: left;
+    left: 5%;
+    font-weight: normal;
+    font-size: 17px;
+    padding-left: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    
 
 
 }
+
 .rightLabel{
     color: white;
     border-radius: 4px;
     background-color: #414141;
-    left: -10px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     width: 70%;
     position: relative;
     left: 15%;
-    margin-bottom: 19px;
-    font-size: 16.4px;
-    height: inherit;
+    font-size: 17px;
     border-color: rgba(153, 176, 253, 0.17);
     padding-left: 10px;
     font-weight: 100;
+    z-index: 3;
+    display: inline-block;
+    height: auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
 
 }
 #messageBox{
@@ -386,25 +430,46 @@ tr{
 
 #contact-cardMain {
     position: relative;
-    top:15%;
-    width: 90%;
+    top:8%;
+    width: 100%;
     height: 100%;
     margin: auto;
 
+}
+.extraRightText td{
+    left:28.3%;
+    top: 3px;
+    padding: 3px;
+    width: 70%;
+}
+#test{
+    position: absolute;
+    height: 30px;
+    z-index: 0;
+}
+#contact-cardMain table{
+    position: relative;
+    width: 90%;
+    top:60px;
+    margin: auto;
+}
+form{
+    width: 90%;
+    margin: auto ;
 }
 .rightDisplayBox::-webkit-scrollbar{
 width:10px;
 background-color:rgba(85, 84, 84, 0.24);
 }
 .rightDisplayBox::-webkit-scrollbar-thumb{
-background-color:rgba(53, 176, 230, 0.8);
+background-color:rgba(100, 104, 106, 0.8);
 border-radius:1px;
 }
 .rightDisplayBox::-webkit-scrollbar-thumb:hover{
-background-color:rgba(100, 189, 227, 0.8);
+background-color:rgba(165, 165, 165, 0.8);
 }
 .rightDisplayBox::-webkit-scrollbar-thumb:active{
-background-color:rgba(53, 176, 230, 0.6);
+background-color:rgba(144, 144, 144, 0.6);
 }
 iframe{
     width: 100%;

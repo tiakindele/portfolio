@@ -2,40 +2,54 @@ $(document).ready(function(){
     //This checkes what card is clicked ant then loads the corresponding card
     $("#backButton").hide();
     var loadCard;
+    var colorChange;
     $(".button").click(function(){
         var cardClicked=$(this).find("p").text();
         if(cardClicked=="Profile")
         {
             loadCard="profile-card";
+            colorChange="#009fd4"
             //alert(loadCard);
         }
         else if (cardClicked=="Experience")
         {
             loadCard="experience-card";
+            colorChange="#8c3"
             //alert(loadCard);
         }
         else if (cardClicked=="Contact me")
         {
             loadCard="contact-card";
+            colorChange="#e6c32d"
             //alert(loadCard);
 
         }
          else if (cardClicked=="Education")
         {
             loadCard="education-card";
+            colorChange="#e67e30"
+            //colorChange="rgba(235, 116, 27, 0.87)"
             //alert(loadCard);
         }
-        else if (cardClicked=="Resume")
+        else if (cardClicked=="Projects")
         {
-            loadCard="resume-card";
+            loadCard="project-card";
+            colorChange="#0a9"
             //alert(loadCard);
+        }
+        else if (cardClicked=="Resume"){
+            loadCard="Resume"
         }
         // This runs a series of steps to see the transition animation yo see.
-        $("#"+loadCard).removeClass("display-none");
-        $("#mainMenu").attr("class","deactivate");
-        setTimeout(dothis,500);
-        $("#"+loadCard).addClass("popin");
-        $("#backButton").addClass("popin");
+        if(loadCard!="Resume")
+        {
+            $("#"+loadCard).removeClass("display-none");
+            $("#mainMenu").attr("class","deactivate");
+            setTimeout(dothis,500);
+            $("#"+loadCard).addClass("popin");
+            $("#backButton").addClass("popin");
+            matchColor();
+        }
 
     });
     function dothis(){
@@ -51,7 +65,9 @@ $(document).ready(function(){
 
     });
     $(".button").click(function(){
-        setTimeout(goToButton,500);
+        if(loadCard!="Resume"){
+            setTimeout(goToButton,500);
+        }
 
     });
     function goToButton(){
@@ -59,6 +75,11 @@ $(document).ready(function(){
     }
     function goToDesccription(){
         window.location.href = '#toTheDescription';
+    }
+    function matchColor(){
+        $("#backButton").css("background-color",colorChange);
+        $(".leftColumn").css("background-color",colorChange);
+        $(".leftLabel").css("background-color",colorChange);
     }
 
 });
