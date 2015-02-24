@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     //This checkes what card is clicked ant then loads the corresponding card
     $("#backButton").hide();
     var loadCard;
