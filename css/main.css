@@ -480,11 +480,11 @@ iframe{
 /*-------------------------------------------------------------------Ainimations------------------------------------------------------------------------*/
 .active {
     display: block;
-    -webkit-animation: activate .5s ease;
-    -moz-animation: activate .5s ease;
-    -ms-animation: activate .5s ease;
-    -o-animation: activate .5s ease;
-    animation: activate .5s ease;
+    -webkit-animation: activate 1.5s ease;
+    -moz-animation: activate 1.5s ease;
+    -ms-animation: activate 1.5s ease;
+    -o-animation: activate 1.5s ease;
+    animation: activate 1.5s ease;
 }
 
 .deactivate {

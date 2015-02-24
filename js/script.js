@@ -43,9 +43,10 @@ $(document).ready(function(){
         // This runs a series of steps to see the transition animation yo see.
         if(loadCard!="Resume")
         {
-            $("#"+loadCard).removeClass("display-none");
+
             $("#mainMenu").attr("class","deactivate");
             setTimeout(dothis,500);
+
             $("#"+loadCard).addClass("popin");
             $("#backButton").addClass("popin");
             matchColor();
@@ -55,6 +56,8 @@ $(document).ready(function(){
     function dothis(){
         $("#backButton").show();
         $("#mainMenu").addClass("display-none");
+        // last thing i do is deactivate the menu so i can see the animation play propelly.
+        $("#"+loadCard).removeClass("display-none");
     };
     // Back button this disables the -card and loads the the mainMenu cards
     $("#backButton").click(function(){
