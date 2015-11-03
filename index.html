@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
         <title>Dolapo Toki</title>
     </head>
     <body>
@@ -22,7 +21,7 @@
                 <div id="leftPersonalInfo">
                    <img src="img/profile%20pic.jpg" width="80" alt="profile pic">
                     <!--Short Bio-->
-                    <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and im a</span> <em>Software Developer and Designer</em> <span class="light">from Vancouver<br> BC Canada </span></p>
+                    <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and im a</span> <em>Full-stack Software Developer <br>and Designer</em> <span class="light">from Vancouver<br> BC Canada </span></p>
                 </div>
                 <!--Right pannel holds contact information-->
                 <div id="rightPersonalInfo">
@@ -119,7 +118,7 @@
                             </table>
                             <p class="leftTag">Short Bio</p>
                             <div class="underline"></div>
-                            <p id="kick">Hi, my names Dolapo. i'm 20 years old and currently a student at Simon Fraser University Studying both Computer science and Interactive arts &amp; Technology. i like programing and design  </p>
+                            <p id="kick">I'm currently a student at Simon Fraser University pursuing a degree in Computer science, and Interactive arts &amp; Technology. I currently work as the Lead Developer for a startup company<a href="theskynation.com"> SkyNation </a> where i lead a small but   talented individuals to deliver web and mobile     </p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +132,7 @@
                 <div id="contact-card" class="displaybox display-none">
                     
                     <div class="col-4of10 leftDisplayBox">
-                       <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Louis%20Riel%20Residence%2C%20Simon%20Fraser%20University%208888%20University%20Dr%20Burnaby%2C%20BC%20V5A%201S6%2C%20Canada&key=AIzaSyC3pRnGiAe2hfbD1abYQOV7myn8Q5_mxrY&zoom=16"></iframe>
+                       <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Wave%2013303%20103A%20Avenue%2C%20Surrey%2C%20BC%2C%20Canada&key=AIzaSyDqQxnh5QGGl_71FZDlTTF43C3po5x4AS8&zoom=16"></iframe>
 
                     </div>
                     <div class="col-6of10 rightDisplayBox" >                        
@@ -141,12 +140,12 @@
                         <div id="contact-cardMain">
                             <p class="leftTag">Contact Me</p>
                             <div class="underline"></div>
-                            <form >
-                                <P><label class="leftLabel">Name</label><input class="rightLabel" type="text"></P>
-                                <P><label class="leftLabel">Email</label><input class="rightLabel"  type="email"></P>
-                                <P><label class="leftLabel">Subject</label><input class="rightLabel" type="text"></P>
-                                <P><label class="leftLabel">Message</label><textarea class="rightLabel" id="messageBox"></textarea></P>
-                                <div id="submitMessage"><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon glyphicon-send white" aria-hidden="true"></span> Submit</button></div>
+                            <form action="MAILTO:someone@example.com" method="post" enctype="text/plain">
+                                <P><label class="leftLabel">Name</label><input class="rightLabel" type="text" name="Name"></P>
+                                <P><label class="leftLabel">Email</label><input class="rightLabel"  type="email" name="Email"></P>
+                                <P><label class="leftLabel">Subject</label><input class="rightLabel" type="text" name="Subject"></P>
+                                <P><label class="leftLabel">Message</label><textarea class="rightLabel" id="messageBox" name="Message"></textarea></P>
+                                <div id="submitMessage"><button type="submit" class="btn btn-success" value="Send"><span class="glyphicon glyphicon glyphicon-send white" aria-hidden="true"></span> Submit</button></div>
                                 
                             </form>
                             <p class="leftTag">Contact Info</p>
@@ -154,7 +153,7 @@
                             <table>
                                 <tr>
                                     <td class="leftColumn" id="test"><span class="glyphicon glyphicon-map-marker white" aria-hidden="true"></span></td>
-                                    <td class="rightColumn">Louis Riel Residence, Simon Fraser University 8888 University Dr Burnaby, BC V5A 1S6, Canada</td>
+                                    <td class="rightColumn">The Wave, 13303 103a Avenue, Surrey, BC V5A 1S6, Canada</td>
                                 </tr>
                                 <tr class="spacer"></tr>
                                 <tr>
@@ -180,8 +179,8 @@
                             <div class="underline"></div>
                             <table>
                                     <tr>
-                                        <td class="leftColumn">2011-Now</td>
-                                        <td class="rightColumn">Bsc Major Computing Science. </td>
+                                        <td class="leftColumn">Jan 2013 - Current Day</td>
+                                        <td class="rightColumn">BSc Major Computing Science. </td>
                                     </tr>
                                 <tr class="miniSpacer"></tr>
                                 <tr>
@@ -189,7 +188,7 @@
                                         &nbsp;
                                     </td>
                                     <td class="rightColumn">
-                                        Bsc Minor Interactive Arts & Technology
+                                        BSc Minor Interactive Arts & Technology
                                     </td>
                                 </tr>
                                 <tr class="miniSpacer"></tr>
@@ -203,7 +202,7 @@
                                 </tr>
                                     <tr class="spacer"></tr>
                                     <tr>
-                                        <td class="leftColumn">2010-2011</td>
+                                        <td class="leftColumn">Jan 2011 - Dec 2012</td>
                                         <td class="rightColumn"> UTP II Computer Science.</td>       
                                     </tr>
                                 <tr class="miniSpacer"></tr>
@@ -231,11 +230,12 @@
                     </div>
                 </div>
                 <div class="display-none displaybox" id="project-card">
-                    <div class="col-5of10 leftDisplayBox" id="programingWork">
+                    <!--Removed This section not yet completed-->
+                    <!--<div class="col-5of10 leftDisplayBox" id="programingWork">
                     <img src="img/comp.svg">   
-                    </div>
-                    <div class="col-5of10 rightDisplayBox" id="designWork">
-                         <img src="img/gra1.png">
+                    </div>-->
+                    <div class="col-10of10 rightDisplayBox" id="designWork">
+                         <!--<img src="img/gra1.png">-->
 
                     </div>
                 </div>
@@ -270,7 +270,6 @@
     <!--this is used to load the modified widget0 script-->
     <script src="js/jquery-1.11.2.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/widget0.js"></script>
     <script src="bootstrap/dist/js/bootstrap.js"></script>
     
 

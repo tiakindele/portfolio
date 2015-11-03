@@ -159,6 +159,7 @@ background-color:#ff8285;
 }
 #ExperienceButton{
     background-color: #8c3;
+    opacity: 0.4;/* Added because not completed yet*/
     transition: background-color 0.4s ease;
 }
 #contactButton{
@@ -172,15 +173,15 @@ background-color:#ff8285;
 }
 #resumeButton{
     background-color: #0a9;
+    opacity: 0.4;/* Added because not completed yet*/
     transition: background-color 0.4s ease;
 }
 #projectWindow{
     background-color: rgba(222, 38, 67, 0.94);
+    opacity: 0.4;/* Added because not completed yet*/
     transition: background-color 0.4s ease;
 }
-#gpluswidget{
-    
-}
+
 .button p{
     font-size: 17px;
     position: absolute;

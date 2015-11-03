@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
         else if (cardClicked=="Experience")
         {
-            loadCard="experience-card";
+            loadCard="Null";
             colorChange="#8c3"
             //alert(loadCard);
         }
@@ -33,15 +33,15 @@ $(document).ready(function () {
         }
         else if (cardClicked=="Projects")
         {
-            loadCard="project-card";
+            loadCard="Null";
             colorChange="#0a9"
             //alert(loadCard);
         }
         else if (cardClicked=="Resume"){
-            loadCard="Resume"
+            loadCard="Null"
         }
-        // This runs a series of steps to see the transition animation yo see.
-        if(loadCard!="Resume")
+        // This runs a series of steps to see the transition animation you see.
+        if(loadCard!="Null")
         {
 
             $("#mainMenu").attr("class","deactivate");
@@ -50,6 +50,9 @@ $(document).ready(function () {
             $("#"+loadCard).addClass("popin");
             $("#backButton").addClass("popin");
             matchColor();
+        }
+        else{
+            goToDesccription();
         }
 
     });
@@ -68,7 +71,8 @@ $(document).ready(function () {
 
     });
     $(".button").click(function(){
-        if(loadCard!="Resume"){
+        // Incase it's a mobile device it moves back button directly to the top 
+        if(loadCard!="Null"){
             setTimeout(goToButton,500);
         }
 
