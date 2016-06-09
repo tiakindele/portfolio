@@ -1,1 +1,4 @@
 /.ftpsync_settings
+
+#Folders to remove
+node_modules
