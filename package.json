@@ -1,0 +1,24 @@
+{
+  "name": "personalwebsite",
+  "version": "1.0.0",
+  "description": "Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Capdt/Dolapotokiswebsite.git"
+  },
+  "author": "Dolapo Toki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Capdt/Dolapotokiswebsite/issues"
+  },
+  "homepage": "https://github.com/Capdt/Dolapotokiswebsite#readme",
+  "dependencies": {
+    "browser-sync": "^2.13.0",
+    "connect-history-api-fallback": "^1.2.0",
+    "gulp": "^3.9.1"
+  }
+}
