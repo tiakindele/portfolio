@@ -3,7 +3,7 @@ body{
     /*background: linear-gradient(rgba(229, 228, 228, 0.94), rgba(173, 167, 167, 0.69));*/
      font-family: 'Open Sans', sans-serif;
      background: radial-gradient(#c9c9c9, #f0f0f0, #e5e5e5);
-     overflow: hidden;
+     /*overflow: hidden;*/
 
 }
 .button {
@@ -120,6 +120,43 @@ em{
 .white{
     color: #e6e6e6;
     font-size: 20px;
+}
+.paragraphWhite{
+    color: #e6e6e6;
+    text-align: left;
+    padding: 28px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*font-size: 20px;*/
+}
+.tagParagraphWhite{
+    color: #e6e6e6;
+    text-align: center;
+    margin-left: 28px;
+    padding:3px; 
+    display: inline-block;
+
+    background-color: #757575;
+    border-radius: 4px;
+   
+    border: 1px solid rgba(255, 255, 255, 0);
+				
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    /*font-size: 20px;*/
+}
+#projectDetailsTitle{
+    margin-top: 0px;
+    padding-bottom: 3px;
+}
+#projectDetails{
+    display: flex;
+    justify-content: center;
+}
+.projectDetailsItems{
+    align-self: center;
 }
 /**/
 .button span{
@@ -273,6 +310,20 @@ background-color:#ff8285;
         overflow: auto;
     }
 
+}
+@media (max-width :420px){
+    #projectDetails{
+        display: block;
+        
+    }
+    .projectDetailsItems{
+        align-self: center;
+    }
+    .col-3of10 {
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
 }
 @media (max-width :480px){
     #leftPersonalInfo p{

@@ -7,7 +7,7 @@
         <link rel="stylesheet"  href="css/main.css">
         <link rel="stylesheet"  href="css/grid.css">
         <link rel="stylesheet" href="css/normalize.css">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
         <title>Dolapo Toki</title>
     </head>
@@ -140,7 +140,7 @@
                         <div id="contact-cardMain">
                             <p class="leftTag">Contact Me</p>
                             <div class="underline"></div>
-                            <form action="MAILTO:someone@example.com" method="post" enctype="text/plain">
+                            <form  action="mailto: dolapotoki@gmail.com" method="post" enctype="text/plain">
                                 <P><label class="leftLabel">Name</label><input class="rightLabel" type="text" name="Name"></P>
                                 <P><label class="leftLabel">Email</label><input class="rightLabel"  type="email" name="Email"></P>
                                 <P><label class="leftLabel">Subject</label><input class="rightLabel" type="text" name="Subject"></P>
@@ -229,39 +229,72 @@
 
                     </div>
                 </div>
-                <div class="display-none displaybox" id="project-card">
-                    <!--Removed This section not yet completed-->
-                    <!--<div class="col-5of10 leftDisplayBox" id="programingWork">
-                    <img src="img/comp.svg">   
+                <div class="display-none displaybox grid" id="project-card">
+                    <div class="col-4of10 leftDisplayBox">
+                        <!--<img id="profilePicLarge" src="img/profile%20pic%20large.jpg" alt="Profile picture">-->
+                        <iframe width="100" height="100" src="https://www.youtube.com/embed/ziwDvejyrA0?controls=0"></iframe>
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
+                        <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
+                        <div id="profile-cardMain">
+                            <h1 class="leftTag" id="projectTitle"> Project Title</h1>
+                            <div class="underline"></div>
+                            <p class="paragraphWhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue lectus, in gravida mauris. Quisque libero felis, aliquet sit amet lectus ac, malesuada efficitur erat. In quam ante, sagittis ut ante non, viverra tempor mauris. Nunc et rutrum nunc. Pellentesque id ornare quam. Quisque consectetur urna in hendrerit luctus. Nullam varius lacinia mi ut elementum. Ut mattis hendrerit lorem, ut auctor purus scelerisque convallis</p>
+                            
+                            <h1 class="leftTag" id="projectDetailsTitle"> Project details</h1>
+                            <div class="underline"></div>
+                            <div class="col-10of10" id="projectDetails">
+                                <div class="col-3of10 projectDetailsItems" id="projectTagSection">
+                                    <P class="tagParagraphWhite">C++</P>
+                                    <P class="tagParagraphWhite">D++</P>
+                                    <P class="tagParagraphWhite">C++</P>
+                                    <P class="tagParagraphWhite">D++</P>
+                                </div>
+                                <div class="col-3of10 projectDetailsItems" id="websiteSection">
+                                    <a href="http://www.w3schools.com">Project website</a>
+                                </div>
+                                <div class="col-3of10 projectDetailsItems" id="gitProjectSection">
+                                    <img src="img/icons/github-logo.svg" width="30px">
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                
+         
+                
+                <!--<div class="display-none">
+                    <div class="col-4of10 leftDisplayBox">
+                        <p>Resume</p>
+
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
+
+
+                    </div>
+                </div>
+                <div class="display-none">
+                    <div class="col-4of10 leftDisplayBox">
+                        <p>Resume</p>
+
+                    </div>
+                    <div class="col-6of10 rightDisplayBox">
+
+
                     </div>-->
-                    <div class="col-10of10 rightDisplayBox" id="designWork">
-                         <!--<img src="img/gra1.png">-->
-
-                    </div>
-                </div>
-                <div class="display-none">
-                    <div class="col-4of10 leftDisplayBox">
-                        <p>Resume</p>
-
-                    </div>
-                    <div class="col-6of10 rightDisplayBox">
-
-
-                    </div>
-                </div>
-                <div class="display-none">
-                    <div class="col-4of10 leftDisplayBox">
-                        <p>Resume</p>
-
-                    </div>
-                    <div class="col-6of10 rightDisplayBox">
-
-
-                    </div>
                 </div>
             </div>
     
         </main>
+        <script src="js/base.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=init" async></script>
+        <script type="text/javascript">
+            function init() {
+                dplus.website.init('https://' + 'dolapo-websiteapi.appspot.com' + '/_ah/api');
+            }
+    </script>
     </body>
     <footer>
         
@@ -269,8 +302,10 @@
     </footer>
     <!--this is used to load the modified widget0 script-->
     <script src="js/jquery-1.11.2.js"></script>
+    
     <script type="text/javascript" src="js/script.js"></script>
     <script src="bootstrap/dist/js/bootstrap.js"></script>
+    
     
 
 </html>
