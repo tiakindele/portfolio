@@ -33,9 +33,14 @@ $(document).ready(function () {
         }
         else if (cardClicked=="Projects")
         {
-            loadCard="Null";
+            loadCard="project-card";
             colorChange="#0a9"
             //alert(loadCard);
+            // window.getProjects();
+           window.getProjects(myCallBack);
+            
+            //console.log(JSON.stringify(window.getProjects()));
+            // JSON.parse();
         }
         else if (cardClicked=="Resume"){
             loadCard="Null"
@@ -87,6 +92,16 @@ $(document).ready(function () {
         $("#backButton").css("background-color",colorChange);
         $(".leftColumn").css("background-color",colorChange);
         $(".leftLabel").css("background-color",colorChange);
+    }
+    function myCallBack(message){
+         //console.log(message);
+         var output = message.items;
+         console.log(output.length);
+         for(i=0;i<output.length;i++){
+             console.log(output[i].projectTitle);
+             document.getElementById("projectTitle").innerHTML=output[i].projectTitle;
+         }
+
     }
 
 });
