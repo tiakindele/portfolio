@@ -93,19 +93,46 @@ $(document).ready(function () {
         $(".leftColumn").css("background-color",colorChange);
         $(".leftLabel").css("background-color",colorChange);
     }
+    // call back method when the asyncronus call to the api is made
     function myCallBack(message){
          //console.log(message);
          var output = message.items;
-         console.log(output.length);
+         //console.log(output.length);
+         //get each project
          for(i=0;i<output.length;i++){
-             console.log(output[i].projectTitle);
+             //console.log(output[i]);
              //document.getElementById("projectTitle").innerHTML=output[i].projectTitle;
-             addVard();
+             createProject(output[i].videoUrl,output[i].projectTitle,output[i].description,output[i].technolgyUsed,output[i].websiteLink,output[i].gitHubUrl);
          }
 
     }
-    function addVard(){
-        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="100" height="100" src="https://www.youtube.com/embed/ziwDvejyrA0?controls=0"></iframe> </div> <div class="col-6of10 rightDisplayBox"> <span class="glyphicon glyphicon-user white" aria-hidden="true"></span> <div id="profile-cardMain"> <h1 class="leftTag" id="projectTitle">'+"test"+' Title</h1> <div class="underline"></div> <p class="paragraphWhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue lectus, in gravida mauris. Quisque libero felis, aliquet sit amet lectus ac, malesuada efficitur erat. In quam ante, sagittis ut ante non, viverra tempor mauris. Nunc et rutrum nunc. Pellentesque id ornare quam. Quisque consectetur urna in hendrerit luctus. Nullam varius lacinia mi ut elementum. Ut mattis hendrerit lorem, ut auctor purus scelerisque convallis</p> <h1 class="leftTag" id="projectDetailsTitle"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems" id="projectTagSection"> <P class="tagParagraphWhite">C++</P> <P class="tagParagraphWhite">D++</P> <P class="tagParagraphWhite">C++</P> <P class="tagParagraphWhite">D++</P> </div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <a href="http://www.w3schools.com">Project website</a> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <img src="img/icons/github-logo.svg" width="30px"> </div> </div> </div> </div> </div>';
+    function createProject(videoUrl,projectTitle,projectDescription,projectTags,projectUrl,projectRepo){
+        var expandedProjectTags=" ";
+        var localTag=[];
+        var previousComaLocation=0;
+        var currentComaLocation=0;
+        console.log(projectTags);
+        for(i=0;i<=projectTags.length;i++){
+            if(projectTags[i]==','){
+                //console.log("found coma");
+                currentComaLocation=i;
+                //take substring from previous to current loacation
+                localTag.push(projectTags.substring(previousComaLocation,currentComaLocation));
+                //console.log(localTag);
+                previousComaLocation=currentComaLocation+1;
+            }
+            if(i==projectTags.length){
+                localTag.push(projectTags.substring(previousComaLocation,i));
+                //console.log(localTag);
+            }
+        }
+        for(i=0;i<localTag.length;i++){
+           var item= '<P class="tagParagraphWhite">'+localTag[i]+'</P>';
+           expandedProjectTags=expandedProjectTags.concat(item);
+           //console.log(expandedProjectTags);
+        }
+        
+        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="100" height="100" src="'+ videoUrl+'"></iframe> </div> <div class="col-6of10 rightDisplayBox"><div id="profile-cardMain"> <h1 class="leftTag" id="projectTitle">'+projectTitle+'</h1> <div class="underline"></div> <p class="paragraphWhite">'+projectDescription+'</p> <h1 class="leftTag" id="projectDetailsTitle"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems" id="projectTagSection"> '+expandedProjectTags+'</div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <a href="'+projectUrl+'">Project website</a> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <a href="'+projectRepo+'" target="_blank"><img src="img/icons/github-logo.svg" width="30px"></a> </div> </div> </div> </div> </div>';
         var d1 = document.getElementById('project-card');
         d1.insertAdjacentHTML('beforeend', doc);
     }
