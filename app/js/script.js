@@ -99,9 +99,15 @@ $(document).ready(function () {
          console.log(output.length);
          for(i=0;i<output.length;i++){
              console.log(output[i].projectTitle);
-             document.getElementById("projectTitle").innerHTML=output[i].projectTitle;
+             //document.getElementById("projectTitle").innerHTML=output[i].projectTitle;
+             addVard();
          }
 
+    }
+    function addVard(){
+        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="100" height="100" src="https://www.youtube.com/embed/ziwDvejyrA0?controls=0"></iframe> </div> <div class="col-6of10 rightDisplayBox"> <span class="glyphicon glyphicon-user white" aria-hidden="true"></span> <div id="profile-cardMain"> <h1 class="leftTag" id="projectTitle">'+"test"+' Title</h1> <div class="underline"></div> <p class="paragraphWhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue lectus, in gravida mauris. Quisque libero felis, aliquet sit amet lectus ac, malesuada efficitur erat. In quam ante, sagittis ut ante non, viverra tempor mauris. Nunc et rutrum nunc. Pellentesque id ornare quam. Quisque consectetur urna in hendrerit luctus. Nullam varius lacinia mi ut elementum. Ut mattis hendrerit lorem, ut auctor purus scelerisque convallis</p> <h1 class="leftTag" id="projectDetailsTitle"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems" id="projectTagSection"> <P class="tagParagraphWhite">C++</P> <P class="tagParagraphWhite">D++</P> <P class="tagParagraphWhite">C++</P> <P class="tagParagraphWhite">D++</P> </div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <a href="http://www.w3schools.com">Project website</a> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <img src="img/icons/github-logo.svg" width="30px"> </div> </div> </div> </div> </div>';
+        var d1 = document.getElementById('project-card');
+        d1.insertAdjacentHTML('beforeend', doc);
     }
 
 });
