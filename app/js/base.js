@@ -10,7 +10,7 @@ dplus.website.init= function (apiRoot){
   var callback = function () {
     if (--apisToLoad == 0) {
       //Enable ui elements or data that needed to ensure a connection to the endpoint
-      
+      enableUiElements()
     }
   }
 
@@ -37,6 +37,30 @@ function getProjects(callback){
     });
     //console.log(message);
     
+}
+function getExperience(callback){
+    var message;
+    gapi.client.dolapoapi.getExperience(
+    {
+      'appid': "test4"
+    }).execute(function (resp) {
+      if (!resp.code) {
+        //get the responce and convert it to a string 
+        message=resp;
+        //console.log(resp);
+      }
+      if(callback && typeof callback == "function") {
+        return callback(message);
+        //console.log(message);
+        }
+    });
+    //console.log(message);
+    
+}
+function enableUiElements(){
+        $("#projectWindow").addClass("cardLoaded");
+        $("#experienceButton").addClass("cardLoaded");
+        console.log("api loaded ui enabled");
 }
 
 
