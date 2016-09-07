@@ -34,7 +34,7 @@ body{
   -moz-background-clip: padding;     /* Firefox 3.6 */
   -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
   background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-    height: 400px;
+    height: 200px;
     position: relative;
     z-index: 1;
     text-align: left;
@@ -52,14 +52,10 @@ body{
     font-size:17px;
     
 }
-/*The positioning for the second row is corrected here because of the height of the feed you ned to move the second row up by about half the height of the feed window; */
-#firstRow{
-    
-}
 /*To moce the second tor up since the height of the feed is 400*/
 #secondRow{
     position: relative;
-    top: -200px;
+    /*top: -200px;*/
    
 }
 /*Begin tyling the header------*/
@@ -100,7 +96,7 @@ em{
 #contactIcons{
     display: inline-block;
     position: absolute;
-    margin-top: 20px;
+    margin-top: 30px;
     left: 0%;
 }
 /*Used to style the text in the right pannel of the screen*/
@@ -131,16 +127,13 @@ em{
 .paragraphWhite{
     color: #e6e6e6;
     text-align: left;
-    padding: 28px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     /*font-size: 20px;*/
 }
 .marginProjectDetails{
     margin-left: 2em;
 }
 .tagParagraphWhite{
-    color: #e6e6e6;
+    color: #DEDEDE;
     text-align: center;
     margin-left: 3px;
     padding:3px; 
@@ -252,7 +245,6 @@ background-color:#ff8285;
 
 .button p{
     font-size: 17px;
-    font-weight: 100;
     letter-spacing: .1em;
     position: absolute;
     bottom: .2em;
@@ -283,7 +275,7 @@ background-color:#ff8285;
 }
 .leftDisplayBox{
     position: relative;
-    background-color: rgba(31, 31, 31, 0.1);
+    background-color: rgba(222, 222, 222, 0.7);
     border-radius: 4px;
     /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
@@ -320,12 +312,6 @@ background-color:#ff8285;
     #projectWindow{
         height: 200px;
     }
-    #rightPersonalInfo{
-        /*display: block;
-        position: absolute;
-        right:1%;*/
-   
-    }
     #leftPersonalInfo p{
     display: block;
     float: right;
@@ -335,15 +321,21 @@ background-color:#ff8285;
     
     }
     #profilePicLarge{
-    position: absolute;
-    left: 0px;
-    height: 100%;
+        /*position: absolute;
+        left: 0px;
+        height: 100%;*/
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
     #contact-card .leftDisplayBox{
         width: 90%;
     }
     body{
         overflow: auto;
+    }
+    .leftDisplayBox{
+        height: 300px;
     }
 
 }
@@ -355,7 +347,17 @@ background-color:#ff8285;
     .projectDetailsItems{
         align-self: center;
     }
+    #projectWindow{
+        height: 140px;
+    }
+    .button{
+        height: 140px;
+    }
+    .marginProjectDetails{
+        margin-left: 0px;
+    }
 }
+
 @media (max-width :480px){
     #leftPersonalInfo p{
     display: block;
@@ -370,13 +372,15 @@ background-color:#ff8285;
     }
 }
 #backButton{
-    position:relative;
+    position:absolute;
     width: auto;
-	height: 40px;
+	height: 30px;
 	background-color: #54aad1;
 	border: none;
 	border-radius: 4px;
 	color: white;
+    z-index: 1;
+    margin-top: -13px;
 }
 #profilePicLarge{
     height: 100%;
@@ -429,7 +433,7 @@ tr{
     display: inline block;
 }
 .rightColumn{
-    color: white;
+    color:#DEDEDE;
     border-radius: 4px;
     background-color: #414141;
     position: relative;
@@ -441,13 +445,14 @@ tr{
 .kick{
     width: 90%;
     margin: auto;
-    color: white;
+    color: #DEDEDE;
     border-radius: 4px;
     background-color: #414141;
     position: relative;
-    padding-left: 10px;
+    padding: 1em;
     text-align: left;
     letter-spacing: 0.03em;
+    margin-bottom: .8em;
 }
 .underline{
     position: relative;
@@ -817,6 +822,16 @@ to {
 }
 .projectTitle{
     font-size: 19px;
-    font-weight: 100;
+    /*font-weight: 100;*/
     letter-spacing: .1em;
+    margin-top: 0px;
+    margin-bottom: 1.5em;
+    
+}
+.projectDetails{
+    font-size: 19px;
+    /*font-weight: 100;*/
+    letter-spacing: .1em;
+    margin-top: 1em;
+    margin-bottom: .7em;
 }
