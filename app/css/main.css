@@ -13,7 +13,7 @@ body{
     position: relative;
     background-color: #b11ab1;
     border-radius: 4px;
-    box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
 				
   -moz-background-clip: padding;     /* Firefox 3.6 */
@@ -26,7 +26,7 @@ body{
 /*The feed window has a diffrent height because its going to contain ny news feeds on posts etc. the z index is used to push the card foward because when the second rows moved up it stays ontop of it if the z index is not increased*/
 #projectWindow{
     border-radius: 4px;
-    box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 2px solid rgba(255, 255, 255, 0);
     border-right: none;
     border-bottom: none;
@@ -82,9 +82,9 @@ em{
     
 }
 #rightPersonalInfo{
-    display: inline-block;
+    /*display: inline-block;
     position: absolute;
-    right:0%;
+    right:0%;*/
    
 }
 #leftPersonalInfo p{
@@ -101,13 +101,14 @@ em{
     display: inline-block;
     position: absolute;
     margin-top: 20px;
-    right: 0%;
+    left: 0%;
 }
 /*Used to style the text in the right pannel of the screen*/
 #contactInfo {
     position: relative;
     font-size: 12px;
     top: 56px;
+    line-height: 200%;
 }
 /*used to move the phone icon down abit*/
 #contactInfo .phoneicon{
@@ -135,12 +136,17 @@ em{
     padding-bottom: 20px;
     /*font-size: 20px;*/
 }
+.marginProjectDetails{
+    margin-left: 2em;
+}
 .tagParagraphWhite{
     color: #e6e6e6;
     text-align: center;
-    margin-left: 28px;
+    margin-left: 3px;
     padding:3px; 
     display: inline-block;
+    padding-left: 7px;
+    padding-right: 7px;
 
     background-color: #757575;
     border-radius: 4px;
@@ -181,6 +187,7 @@ em{
 }
 .projectDetailsItems{
     align-self: center;
+    
 }
 /**/
 .button span{
@@ -245,9 +252,11 @@ background-color:#ff8285;
 
 .button p{
     font-size: 17px;
+    font-weight: 100;
+    letter-spacing: .1em;
     position: absolute;
-    bottom: 20px;
-    left: 15px;
+    bottom: .2em;
+    left: 1em;
     color: rgba(255, 254, 254, 0.92);
     
 }
@@ -274,12 +283,12 @@ background-color:#ff8285;
 }
 .leftDisplayBox{
     position: relative;
-    background-color: rgba(31, 31, 31, 0.01);
+    background-color: rgba(31, 31, 31, 0.1);
     border-radius: 4px;
-    box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0);
-
+    
   -moz-background-clip: padding;     /* Firefox 3.6 */
   -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
   background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -290,7 +299,7 @@ background-color:#ff8285;
     position: relative;
     background-color: rgba(31, 30, 31, 0.92);
     border-radius: 4px;
-    box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);
+    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
 
   -moz-background-clip: padding;     /* Firefox 3.6 */
@@ -308,10 +317,13 @@ background-color:#ff8285;
     top: 1px;
     z-index: 2;
     }
+    #projectWindow{
+        height: 200px;
+    }
     #rightPersonalInfo{
-    display: block;
-    position: absolute;
-    right:1%;
+        /*display: block;
+        position: absolute;
+        right:1%;*/
    
     }
     #leftPersonalInfo p{
@@ -343,11 +355,6 @@ background-color:#ff8285;
     .projectDetailsItems{
         align-self: center;
     }
-    .col-3of10 {
-        width: 100%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
 }
 @media (max-width :480px){
     #leftPersonalInfo p{
@@ -355,6 +362,11 @@ background-color:#ff8285;
         position: relative;
         float: none;
     
+    }
+    table{
+        width: 80% !important;
+        margin: auto ;
+
     }
 }
 #backButton{
@@ -376,8 +388,9 @@ background-color:#ff8285;
 
 }
 table{
-    width: 90%;
-    margin: auto ;
+    width: 70%;
+    margin: auto;
+    letter-spacing: .07em;
 
 }
 #education-cardMain{
@@ -425,7 +438,7 @@ tr{
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
-#kick{
+.kick{
     width: 90%;
     margin: auto;
     color: white;
@@ -434,6 +447,7 @@ tr{
     position: relative;
     padding-left: 10px;
     text-align: left;
+    letter-spacing: 0.03em;
 }
 .underline{
     position: relative;
@@ -525,7 +539,7 @@ tr{
 }
 #contact-cardMain table{
     position: relative;
-    width: 90%;
+    
     top:60px;
     margin: auto;
 }
@@ -751,3 +765,58 @@ to {
     transform:translateX(0);
     display: block !important;
 }}
+
+/* code for animated blinking cursor */
+.typed-cursor{
+    opacity: 1;
+    font-weight: 100;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    -ms-animation: blink 0.7s infinite;
+    -o-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+    
+    
+}
+@-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-ms-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-o-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+#leftIntroductions{
+   position: absolute;
+    top: 0px;
+    left: 90px;
+}
+.headerMargin{
+    margin-top: 20px;
+}
+#envelopeImage{
+    position: relative;
+    right: -4px;
+}
+.projectTitle{
+    font-size: 19px;
+    font-weight: 100;
+    letter-spacing: .1em;
+}

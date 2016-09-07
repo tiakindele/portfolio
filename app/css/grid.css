@@ -92,10 +92,10 @@ main{
     
     }
     .col-3of10{
-    width: 100%;
+    width: 33.3333333333%;
     }
     .col-1p5of10{
-    width: 100%;
+    width: 33.3333333333%;
     }
     .col-4of10{
     width: 100%;
@@ -111,5 +111,25 @@ main{
     }
     .col-5of10{
     width: 100%;
+    }
+}
+@media (max-width: 550px){
+    .col-3of10{
+    width: 50%;
+    }
+    .col-1p5of10{
+    width: 50%;
+    }
+}
+@media (max-width: 440px){
+    .col-3of10{
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .col-1p5of10{
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 }
