@@ -1,70 +1,115 @@
 $(document).ready(function () {
     //This checkes what card is clicked ant then loads the corresponding card
     $("#backButton").hide();
+    //Global variables
+    var socialMediaHrefAdresses=["https://medium.com/dplus","https://twitter.com/Capt_dt","https://github.com/capdt"];
+    var projectWebsiteHrefAdresses=["https://kuelii.com/","http://penguinerun.appspot.com/","http://zombie-attack.appspot.com/"];
+    //todo
+    var projectGitHrefAdresses=[];
     var loadCard;
     var colorChange;
     var experiencDataRecieved=false;
     var projectDataRecieved=false;
+    var t0,t1;
+    var cardClicked;
+    //Register onclick listener
+    $("a").click(function(){
+        var hrefValue=$(this).attr("href");
+        //Go through the href values 
+        switch(hrefValue){
+            //Send a link click event to google analytics
+            case  socialMediaHrefAdresses[0]:
+                ga('send', 'event', {
+                    'eventCategory': 'Links',
+                    'eventAction': 'click',
+                    'eventLabel': "Medium blog viewed"
+                });
+                
+                case  socialMediaHrefAdresses[1]:
+                ga('send', 'event', {
+                    'eventCategory': 'Links',
+                    'eventAction': 'click',
+                    'eventLabel': "Twitter account viewed"
+                });
+                case  socialMediaHrefAdresses[2]:
+                ga('send', 'event', {
+                    'eventCategory': 'Links',
+                    'eventAction': 'click',
+                    'eventLabel': "Github account viewed"
+                });
+
+            default:
+           //do nothing
+       }
+    });
+    //Register click listener for the cards in the main menu
     $(".button").click(function(){
-        var cardClicked=$(this).find("p").text();
+        //Send card-item click data to google analytics 
+        cardClicked=$(this).find("p").text();
+        ga('send', 'event', {
+                'eventCategory': 'Card item',
+                'eventAction': 'click',
+                'eventLabel': cardClicked
+        });
         if(cardClicked=="PROFILE")
         {
+            //get the time when the card was clicked
+            t0=performance.now();
             loadCard="profile-card";
-            colorChange="#009fd4"
-            //alert(loadCard);
+            colorChange="#009fd4"        
         }
         else if (cardClicked=="EXPERIENCE")
         {
+             //get the time when the card was clicked
+            t0=performance.now();
             loadCard="experience-card";
             colorChange="#8c3"
             if(!experiencDataRecieved){
                 window.getExperience(myExperienceCallBack);
             }
-            
-            //alert(loadCard);
         }
         else if (cardClicked=="CONTACT ME")
         {
+             // get the time when the card was clicked
+            t0=performance.now();
             loadCard="contact-card";
             colorChange="#e6c32d"
-            //alert(loadCard);
-
         }
          else if (cardClicked=="EDUCATION")
         {
+             //get the time when the card was clicked
+            t0=performance.now();
             loadCard="education-card";
             colorChange="#e67e30"
-            //colorChange="rgba(235, 116, 27, 0.87)"
-            //alert(loadCard);
-        }
+        } 
         else if (cardClicked=="PROJECTS")
         {
+             //get the time when the card was clicked
+            t0=performance.now();
             loadCard="project-card";
-            colorChange="#de2643"
-            //alert(loadCard);
-            // window.getProjects();
+            colorChange="#de2643";
+            //Makes sure we do not get new data if we have what we need
             if(!projectDataRecieved){
+                //Call the get projects method and pass in a call back
                 window.getProjects(myProjectCallBack);
             }
-           
-            
-            //console.log(JSON.stringify(window.getProjects()));
-            // JSON.parse();
         }
+        //If the resume tab is clicked then opena new tab with a link to the pdf file        
         else if (cardClicked=="RESUME"){
             loadCard="Null"
             var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume(2016)_updated_reduced.pdf?alt=media&token=9e84b5a3-4062-47c8-bd04-74a4f08f4dc1", '_blank');
             win.focus();
         }
-        // This runs a series of steps to see the transition animation you see.
+        // Animate transition to detailed view.
         if(loadCard!="Null")
         {
-
+            //Remove the main menu
             $("#mainMenu").attr("class","deactivate");
-            setTimeout(dothis,500);
-
+            setTimeout(cardTransition,500);
+            //Add the detailed view
             $("#"+loadCard).addClass("popin");
             $("#backButton").addClass("popin");
+            //change the color of the back button to that of the card
             matchColor();
         }
         else{
@@ -72,7 +117,7 @@ $(document).ready(function () {
         }
 
     });
-    function dothis(){
+    function cardTransition(){
         $("#backButton").show();
         $("#mainMenu").addClass("display-none");
         // last thing i do is deactivate the menu so i can see the animation play propelly.
@@ -80,100 +125,166 @@ $(document).ready(function () {
     };
     // Back button this disables the -card and loads the the mainMenu cards
     $("#backButton").click(function(){
+        // get the time when the back button was pressed 
+        t1=performance.now();
+        var timeSpent=t1-t0;
+        console.log("time spent looking at " +cardClicked+" :"+timeSpent+ " miliseconds" )
+        //send time spent looking at the page to google analytics
+        ga('send', {
+            hitType: 'timing',
+            timingCategory: cardClicked,
+            timingVar: 'time-spent',
+            timingValue: timeSpent
+        });
+        //Remove the detailed view and load the main menu
         $("#"+loadCard).addClass("display-none");
         $("#mainMenu").attr("class","active");
         $("#backButton").hide();
         goToDesccription();
 
+
+
     });
     $(".button").click(function(){
-        // Incase it's a mobile device it moves back button directly to the top 
+        //Incase it's a mobile device it moves back button directly to the top 
         if(loadCard!="Null"){
             setTimeout(goToButton,500);
         }
 
     });
+    //When the view is shrunk this makes the content in the setailed view srart with the back button at the top of the screen
     function goToButton(){
         window.location.href = '#toTheButton';
     }
+    //When the view is shrunk this makes the content srart with profile view at the top
     function goToDesccription(){
         window.location.href = '#toTheDescription';
     }
+    //Change color of back button
     function matchColor(){
         $("#backButton").css("background-color",colorChange);
         $(".leftColumn").css("background-color",colorChange);
         $(".leftLabel").css("background-color",colorChange);
     }
-    // call back method when the asyncronus call to the api is made
+    //Callback method for creating the project detailed view when the asyncronus call to the api is made
     function myProjectCallBack(message){
-         //console.log(message);
          var output = message.items;
          console.log(output.length);
-         //get each project
+         //Get each project
          for(i = 0; i < output.length; i++){
              console.log(i);
-             //console.log(output[i]);
-             //document.getElementById("projectTitle").innerHTML=output[i].projectTitle;
-             console.log("run");
              createProject(output[i].videoUrl,output[i].projectTitle,output[i].description,output[i].technolgyUsed,output[i].websiteLink,output[i].gitHubUrl);
          }
+         //Add click listner for the a tags after the projects have been loaded. needs to be done here after the html has been added 
+        $("a").click(function(){
+           var hrefValue=$(this).attr("href");
+        //console.log(hrefValue);
+        switch(hrefValue){
+            case  projectWebsiteHrefAdresses[0]:
+                ga('send', 'event', {
+                    'eventCategory': 'Links',
+                    'eventAction': 'click',
+                    'eventLabel': "Kuelii website viewed"
+                });
+                
+                case  projectWebsiteHrefAdresses[1]:
+                ga('send', 'event', {
+                    'eventCategory': 'Links',
+                    'eventAction': 'click',
+                    'eventLabel': "Penguin run game viewed"
+                });
+                case  projectWebsiteHrefAdresses[2]:
+                ga('send', 'event', {
+                    'eventCategory': 'Links',
+                    'eventAction': 'click',
+                    'eventLabel': "Zombie attack game viewed"
+                });
 
+            default:
+            //do nothing
+            }
+        });
     }
+    //Callback method for creating a experience detailed view when the asyncronus call to the api is made
     function myExperienceCallBack(message){
-         //console.log(message);
          var output = message.items;
-         //console.log(output.length);
-         //get each project
          for(i=0;i<output.length;i++){
-             //console.log(output[i]);
-             //document.getElementById("projectTitle").innerHTML=output[i].projectTitle;
-             
              createExperienceCard(" ",output[i].company,output[i].role,output[i].workDetails);
          }
-
     }
+    //Method to generate the the project detailed view and add it to the index.html document
     function createProject(videoUrl,projectTitle,projectDescription,projectTags,projectUrl,projectRepo){
-       //console.log(projectTitle);
+        //Local Variables
         var expandedProjectTags=" ";
         var localTag=[];
         var previousComaLocation=0;
         var currentComaLocation=0;
-        console.log(projectTags);
+        //Run throug the length of the project tags
         for(j=0;j<=projectTags.length;j++){
+            //Search for a coma aymbol
             if(projectTags[j]==','){
-                //console.log("found coma");
                 currentComaLocation=j;
-                //take substring from previous to current loacation
+                //Push new found tag into localTag array
                 localTag.push(projectTags.substring(previousComaLocation,currentComaLocation));
-                //console.log(localTag);
+                //The previous locaiton is now the current location
                 previousComaLocation=currentComaLocation+1;
             }
+            //Add the last tag afer the coma
             if(j==projectTags.length){
                 localTag.push(projectTags.substring(previousComaLocation,j));
-                //console.log(localTag);
             }
         }
+        //Generate html code for each tag
         for(k=0;k<localTag.length;k++){
            var item= '<P class="tagParagraphWhite">'+localTag[k]+'</P>';
            expandedProjectTags=expandedProjectTags.concat(item);
-           //console.log(expandedProjectTags);
         }
-        
-        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="100" height="100" src="'+ videoUrl+'"></iframe> </div> <div class="col-6of10 rightDisplayBox cardSpacer"><div id="profile-cardMain"> <h1 class="leftTag projectTitle">'+projectTitle+'</h1> <div class="underline"></div> <p class="paragraphWhite kick">'+projectDescription+'</p> <h1 class="leftTag projectDetails"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems marginProjectDetails" id="projectTagSection"> '+expandedProjectTags+'</div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <a href="'+projectUrl+'">Project website</a> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <a href="'+projectRepo+'" target="_blank" class="fade2"><img src="img/icons/github-logo.svg" width="30px"></a> </div> </div> </div> </div> </div>';
+        //Fill boilerplate layout with the data recieved  
+        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="100" height="100" src="'+ videoUrl+'"></iframe> </div> <div class="col-6of10 rightDisplayBox cardSpacer"><div id="profile-cardMain"> <h1 class="leftTag projectTitle">'+projectTitle+'</h1> <div class="underline"></div> <p class="paragraphWhite kick">'+projectDescription+'</p> <h1 class="leftTag projectDetails"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems marginProjectDetails" id="projectTagSection"> '+expandedProjectTags+'</div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <a href="'+projectUrl+'" target="-blank">Project website</a> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <a id="repo" href="'+projectRepo+'" target="_blank" class="fade2"><img src="img/icons/github-logo.svg" width="30px"></a> </div> </div> </div> </div> </div>';
+        //Get the project detailed view section and add this data to it.
         var d1 = document.getElementById('project-card');
+        //Incsert the html content
         d1.insertAdjacentHTML('beforeend', doc);
+        //Ensures we dont have to run this method a secont time 
         projectDataRecieved=true;
-       
     }
+    //Method to generate the the experience detailed view and add it to the index.html document
     function createExperienceCard(image,company,role,workDetails){
-        var doc='<div class="col-4of10 leftDisplayBox"> <img  class="companyImage" src="img/skynation.png" alt="Company image"> </div> <div class="col-6of10 rightDisplayBox cardSpacer"> <!--<span class="glyphicon glyphicon-user white" aria-hidden="true"></span>--> <div id="profile-cardMain"> <!--<p class="leftTag">Profile</p>--> <!--<div class="underline"></div>--> <table> <tr> <td class="leftColumn">Comapany</td> <td class="rightColumn">'+company+'</td> </tr> <tr class="spacer"></tr> <tr> <td class="leftColumn">Role</td> <td class="rightColumn">'+role+'</td> </tr> <tr class="spacer"></tr> <!--<tr> <td class="leftColumn">Ocupation</td> <td class="rightColumn"> Student </td> </tr>--> <tr class="spacer"></tr> </table> <p class="leftTag projectDetails">Work Details</p> <div class="underline"></div> <p class="kick">'+workDetails+'</p> </div> </div> ';
+        var pathToImage="img/skynation.png";
+        var id="defaultCompanyImage";
+        if(company=="Simon Fraser University"){
+            pathToImage="img/sfuImage.jpg";
+            id="sfuImage";
+        }
+        var doc='<div class="col-4of10 leftDisplayBox"> <img  id= '+id+' class="companyImage" src='+pathToImage+' alt="Company image"> </div> <div class="col-6of10 rightDisplayBox cardSpacer"> <!--<span class="glyphicon glyphicon-user white" aria-hidden="true"></span>--> <div id="profile-cardMain"> <!--<p class="leftTag">Profile</p>--> <!--<div class="underline"></div>--> <table> <tr> <td class="leftColumn">Comapany</td> <td class="rightColumn">'+company+'</td> </tr> <tr class="spacer"></tr> <tr> <td class="leftColumn">Role</td> <td class="rightColumn">'+role+'</td> </tr> <tr class="spacer"></tr> <!--<tr> <td class="leftColumn">Ocupation</td> <td class="rightColumn"> Student </td> </tr>--> <tr class="spacer"></tr> </table> <p class="leftTag projectDetails">Work Details</p> <div class="underline"></div> <p class="kick">'+workDetails+'</p> </div> </div> ';
         var d2 = document.getElementById('experience-card');
         d2.insertAdjacentHTML('beforeend',doc);
         experiencDataRecieved=true;
     }
-    window.onbeforeunload = function() { return "Your work will be lost."; };
-    
-    
+    $(function(){
+
+    $("#typed").typed({
+        //strings: ["<p id=""> <span class="+"light"+">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="+"light"+">and i'm a </span> <em>Software Developer <br></em> <span class="+"light"+">from Vancouver<br> BC Canada </span></p>"],
+        stringsElement: $('#typed-strings'),
+        typeSpeed: 30,
+        backDelay: 500,
+        loop: false,
+        contentType: 'html', // or text
+        // defaults to false for infinite loop
+        loopCount: false,
+        callback: function(){ foo(); },
+        resetCallback: function() { newTyped(); }
+    });
+
+    $(".reset").click(function(){
+        $("#typed").typed('reset');
+    });
+
+});
+
+function newTyped(){ /* A new typed object */ }
+
+function foo(){ console.log("Callback"); }
 
 });
 

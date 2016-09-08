@@ -1,39 +1,26 @@
-/*This Styles the div boxes gives them their rounded edges and the transparent borders*/
 
 body{
-    /*background: linear-gradient(rgba(229, 228, 228, 0.94), rgba(173, 167, 167, 0.69));*/
      font-family: 'Open Sans', sans-serif;
      background: radial-gradient(#c9c9c9, #f0f0f0, #e5e5e5);
-     
-     
-     /*overflow: hidden;*/
-
 }
 .button {
     position: relative;
     background-color: #b11ab1;
     border-radius: 4px;
-    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
-				
-  -moz-background-clip: padding;     /* Firefox 3.6 */
-  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-    height: 200px;
-    
-				
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    height: 200px;				
 }
-/*The feed window has a diffrent height because its going to contain ny news feeds on posts etc. the z index is used to push the card foward because when the second rows moved up it stays ontop of it if the z index is not increased*/
 #projectWindow{
     border-radius: 4px;
-    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 2px solid rgba(255, 255, 255, 0);
     border-right: none;
     border-bottom: none;
-				
-  -moz-background-clip: padding;     /* Firefox 3.6 */
-  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
     height: 200px;
     position: relative;
     z-index: 1;
@@ -43,7 +30,6 @@ body{
     
      
 }
-/*Affects the feed title*/
 #projectwindow > p{
    display: inline-block;
     position: relative;
@@ -52,18 +38,18 @@ body{
     font-size:17px;
     
 }
-/*To moce the second tor up since the height of the feed is 400*/
 #secondRow{
     position: relative;
-    /*top: -200px;*/
-   
 }
-/*Begin tyling the header------*/
+/*Stying the header*/
 .light{
     opacity: .75;
 }
 .companyImage{
-    padding-top: 18%;
+   margin-top: 60px;
+}
+#defaultCompanyImage{
+    margin-top: 102px;
 }
 strong{
     font-size: 16px; 
@@ -77,12 +63,7 @@ em{
     display: inline-block;
     
 }
-#rightPersonalInfo{
-    /*display: inline-block;
-    position: absolute;
-    right:0%;*/
-   
-}
+
 #leftPersonalInfo p{
     display: inline-block;
     float: right;
@@ -115,7 +96,6 @@ em{
 }
 #contactIcons img{
     margin-left: 10px;
-    
 }
 /*------End tyling the header*/
 
@@ -140,17 +120,12 @@ em{
     display: inline-block;
     padding-left: 7px;
     padding-right: 7px;
-
     background-color: #757575;
     border-radius: 4px;
-   
     border: 1px solid rgba(255, 255, 255, 0);
-				
-  -moz-background-clip: padding;     /* Firefox 3.6 */
-  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-    /*font-size: 20px;*/
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 .cardSpacer{
     margin-bottom: 50px;
@@ -163,9 +138,9 @@ em{
 }
 .cardLoaded{
     opacity: 1 !important ; 
-   transition: opacity .50s ease-in-out !important ;
-   -moz-transition: opacity .50s ease-in-out !important ;
-   -webkit-transition: opacity .50s ease-in-out !important ;
+    transition: opacity .50s ease-in-out !important ;
+    -moz-transition: opacity .50s ease-in-out !important ;
+    -webkit-transition: opacity .50s ease-in-out !important ;
 }
 .fade2:hover {
     opacity: 0.5;
@@ -180,45 +155,23 @@ em{
 }
 .projectDetailsItems{
     align-self: center;
-    
 }
 /**/
 .button span{
     position: absolute;
     right: 20px;
     top: 20px;
-    
+}
 
-}
-/*--Editing Default bootstrap settings--*/
-
-/*Begin styling for the feed scrolbar--*/
-#feedWindow::-webkit-scrollbar{
-width:10px;
-background-color:rgba(85, 84, 84, 0.24);
-}
-#feedWindow::-webkit-scrollbar-thumb{
-background-color:#fd555a;
-border-radius:1px;
-}
-#feedWindow::-webkit-scrollbar-thumb:hover{
-background-color:#ff8285;
-}
-#feedWindow::-webkit-scrollbar-thumb:active{
-background-color:#ff8285;
-}
-/*--End styling for the feed scrolbar*/
-
-/*Begin indevidual styling for the carda--*/
+/*Begin indevidual styling for the cards--*/
 #profileButton{
     background-color: #009fd4;
     transition: background-color 0.4s ease;
     -webkit-transition: background-color 0.4s ease;
     -moz-transition: background-color 0.4s ease;
     -o-transition: background-color 0.4s ease;
-
 }
-#ExperienceButton{
+#experienceButton{
     background-color: #8c3;
     opacity: 0.4;/* Added because not completed yet*/
     transition: background-color 0.4s ease;
@@ -227,7 +180,7 @@ background-color:#ff8285;
      background-color: #e6c32d;
     transition: background-color 0.4s ease;
 }
-#EducationButton{
+#educationButton{
     background-color: #e67e30;
     transition: background-color 0.4s ease;
     
@@ -262,9 +215,6 @@ background-color:#ff8285;
 #designWork{
     background: radial-gradient(rgb(255, 255, 255), #23c0dd, #2980cb);;
 }
-/*--End indevidual styling for the carda*/
-
-
 #profileButton:hover, #ExperienceButton:hover, #contactButton:hover,#EducationButton:hover, #resumeButton:hover,#projectWindow:hover {
     background-color: rgba(93, 93, 93, 0.77);
     box-shadow: 0px 0px 20px #f2ffaa;
@@ -277,13 +227,11 @@ background-color:#ff8285;
     position: relative;
     background-color: rgba(222, 222, 222, 0.7);
     border-radius: 4px;
-    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0);
-    
-  -moz-background-clip: padding;     /* Firefox 3.6 */
-  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
     height: 400px;
 
 }
@@ -291,18 +239,19 @@ background-color:#ff8285;
     position: relative;
     background-color: rgba(31, 30, 31, 0.92);
     border-radius: 4px;
-    /*box-shadow: 10px 10px 6px rgba(136, 135, 135, 0.63);*/
     border: 1px solid rgba(255, 255, 255, 0);
-
-  -moz-background-clip: padding;     /* Firefox 3.6 */
-  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
     height: 400px;
     overflow: auto;
     line-height: 200% !important;
 }
 
-/*Media Querys*/
+
+
+/******Media Querys******
+*************************/
 @media (max-width: 770px){
     #secondrow{
     position: relative;
@@ -321,9 +270,6 @@ background-color:#ff8285;
     
     }
     #profilePicLarge{
-        /*position: absolute;
-        left: 0px;
-        height: 100%;*/
         margin-left: auto;
         margin-right: auto;
         display: block;
@@ -336,6 +282,12 @@ background-color:#ff8285;
     }
     .leftDisplayBox{
         height: 300px;
+    }
+    #sfuImage{
+        margin-top: 9px;
+    }
+    #defaultCompanyImage{
+        margin-top: 60px;
     }
 
 }
@@ -371,6 +323,8 @@ background-color:#ff8285;
 
     }
 }
+/******End media querys******
+*************************/
 #backButton{
     position:absolute;
     width: auto;
@@ -414,17 +368,20 @@ tr{
 .miniSpacer{
    height: 0.2em;
 }
-.leftColumn{
-    width: 30%;
-    padding:6px;
+.leftColumn{  
     color: white;
     border-radius: 4px;
+    text-align: left;
+    padding-left: .7em;
+    padding-right: .9em;
     background-color: rgba(53, 176, 230, 0.8);
     z-index: 2;
     display: inline block;
 }
+.leftColumn .glyphicon {
+    top:4px !important;
+}
 .leftColumnHide{
-    width: 30%;
     padding:6px;
     color: white;
     border-radius: 4px;
@@ -438,6 +395,7 @@ tr{
     background-color: #414141;
     position: relative;
     padding-left: 10px;
+    text-align: left;
     left: -10px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -474,11 +432,9 @@ tr{
     position: relative;
     left:40%;
     top:0.8em;
-    
 }
 .leftLabel{
-    width: 30%;
-    
+    width: 30%; 
     color: white;
     border-radius: 4px;
     background-color: rgba(53, 176, 230, 0.8);
@@ -493,11 +449,7 @@ tr{
     padding-left: 6px;
     padding-top: 2px;
     padding-bottom: 2px;
-    
-
-
 }
-
 .rightLabel{
     color: white;
     border-radius: 4px;
@@ -516,20 +468,17 @@ tr{
     height: auto;
     padding-top: 2px;
     padding-bottom: 2px;
-
 }
 #messageBox{
     height: 100px;
     font-size: 13px;
 }
-
 #contact-cardMain {
     position: relative;
     top:8%;
     width: 100%;
     height: 100%;
     margin: auto;
-
 }
 .extraRightText td{
     left:28.3%;
@@ -570,9 +519,36 @@ iframe{
     width: 100%;
     height: 100%;
 }
+#leftIntroductions{
+   position: absolute;
+    top: 0px;
+    left: 90px;
+}
+.headerMargin{
+    margin-top: 20px;
+}
+#envelopeImage{
+    position: relative;
+    right: -4px;
+}
+.projectTitle{
+    font-size: 19px;
+    letter-spacing: .1em;
+    margin-top: 0px;
+    margin-bottom: 1.5em;
+    
+}
+.projectDetails{
+    font-size: 19px;
+    letter-spacing: .1em;
+    margin-top: 1em;
+    margin-bottom: .7em;
+}
 
 
-/*-------------------------------------------------------------------Ainimations------------------------------------------------------------------------*/
+
+/****Ainimations****
+*******************/
 .active {
     display: block;
     -webkit-animation: activate 1.5s ease;
@@ -652,10 +628,6 @@ to {
     opacity:1;
     transform:translateX(0)
 }}
-
-
-
-
 @-webkit-keyframes remove {
 
 from {
@@ -711,9 +683,6 @@ to {
     transform:scale(.9);
         display: none;
 }}
-
-
-
 @-webkit-keyframes activate {
 
 from {
@@ -780,8 +749,6 @@ to {
     -ms-animation: blink 0.7s infinite;
     -o-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
-    
-    
 }
 @-keyframes blink{
     0% { opacity:1; }
@@ -807,31 +774,4 @@ to {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
-}
-#leftIntroductions{
-   position: absolute;
-    top: 0px;
-    left: 90px;
-}
-.headerMargin{
-    margin-top: 20px;
-}
-#envelopeImage{
-    position: relative;
-    right: -4px;
-}
-.projectTitle{
-    font-size: 19px;
-    /*font-weight: 100;*/
-    letter-spacing: .1em;
-    margin-top: 0px;
-    margin-bottom: 1.5em;
-    
-}
-.projectDetails{
-    font-size: 19px;
-    /*font-weight: 100;*/
-    letter-spacing: .1em;
-    margin-top: 1em;
-    margin-bottom: .7em;
 }
