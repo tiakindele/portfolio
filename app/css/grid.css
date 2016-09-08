@@ -18,7 +18,6 @@
 	float: left;
 	padding: 0;
 	text-align: center;
-
 }
 /*End - This piece of code was provided by Andrew Hawryshkewich*/
  /*i use this to define the width of the page */
@@ -35,7 +34,6 @@ main{
     margin-right: auto;
     position: relative;
     width: 75%;
-    
 }
 .col-3of10{
     width: 33.3333333333%;
@@ -55,70 +53,65 @@ main{
 .col-5of10{
     width: 50%;
 }
-
+/******Media Querys******
+*************************/
 @media (max-width: 1200px){
     main{
         margin-left: auto;
         margin-right: auto;
-        width: 90%;
-    
+        width: 90%;  
     }
     #personalInfo{
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    
-}
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
 }
 @media (max-width: 990px){
     main{
         margin-left: auto;
         margin-right: auto;
         width: 95%;
-    
     }
     #personalInfo{
-    margin-left: auto;
-    margin-right: auto;
-    width: 95%;
-    
-}
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
 }
 @media (max-width: 770px){
     main{
         margin-left: auto;
         margin-right: auto;
-        width: 96%;
-    
+        width: 96%;  
     }
     .col-3of10{
-    width: 33.3333333333%;
+        width: 33.3333333333%;
     }
     .col-1p5of10{
-    width: 33.3333333333%;
+        width: 33.3333333333%;
     }
     .col-4of10{
-    width: 100%;
+        width: 100%;
     }
     .col-6of10{
-    width: 100%;
+        width: 100%;
     }
     #personalInfo{
-    margin-left: auto;
-    margin-right: auto;
-    width: 96%;
-    
+        margin-left: auto;
+        margin-right: auto;
+        width: 96%;
     }
     .col-5of10{
-    width: 100%;
+        width: 100%;
     }
 }
 @media (max-width: 550px){
     .col-3of10{
-    width: 50%;
+        width: 50%;
     }
     .col-1p5of10{
-    width: 50%;
+        width: 50%;
     }
 }
 @media (max-width: 440px){
@@ -133,3 +126,5 @@ main{
         margin-bottom: 2%;
     }
 }
+/******End media Querys******
+*************************/

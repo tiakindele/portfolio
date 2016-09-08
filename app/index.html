@@ -1,8 +1,24 @@
-<!Doctype>
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <!--Information relevant to loading the page especially with loading the site with required dependencies-->
+        <!--Google analytics-->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-83846906-1', 'auto');
+            ga('send', {
+                hitType: 'pageview',
+                title: 'Home page',
+                page: location.pathname
+            });
+        </script>
+        <!-- End Google Analytics -->
+        
         <meta charset="UTF-8">
+        <!--Site Dependencies-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"  href="css/main.css">
         <link rel="stylesheet"  href="css/grid.css">
@@ -13,80 +29,41 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
         <title>Dolapo Toki</title>
+        <meta name="Dolapo Toki" content="Resume">
     </head>
     <body>
-        
-    <header>
-         <a name="toTheDescription"></a>
-            <!--This is for the top of the screen where the short bio is loaded on the left and right section-->
+        <header>      
+            <a id="toTheDescription"></a>
+            <!--This is for the top of the screen where the short bio is loaded on the left-->
             <div id="personalInfo">
                 <!--Left pannnel holds picture and short bio-->
                 <div id="leftPersonalInfo">
-                   <img src="img/profile%20pic.jpg" width="80" alt="profile pic" class="headerMargin">
+                    <img src="img/profile%20pic.jpg" width="80" alt="profile pic" class="headerMargin">
                     <!--Short Bio-->
                     <div id="leftIntroductions" class="headerMargin">
                         <span id="typed"></span>
                         <div  id="typed-strings">
                             <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and i'm a </span> <em>Software Developer <br></em> <span class="light">from Vancouver<br> BC Canada </span></p>
                         </div>
-                    </div>
-                        
+                    </div>              
                 </div>
-                <!--Right pannel holds contact information-->
-                <div id="rightPersonalInfo">
-                    <!--Links to my social media pages-->
+                <!--This div is needed because the div inside is absolute-->
+                <div>
+                    <!--Social media icons-->
                     <div id="contactIcons">
-                        <img src="img/icons/twitter%20round.svg" width="25px">
-                        <img src="img/icons/Android%20button.svg" width="25px">
-                        <img src="img/icons/githubButton.svg" width="25px">
-                    </div>
-                    <!--Personal contact details -->
-                    <div id="contactInfo" align="right">
-                        <!--<p ><span class="light">dolpapotoki@gmail.com</span> &#160; <a href="mailto:dolapotoki@gmail.com"><img id="envelopeImage" src="img/icons/letter%20envelope.svg" width="16px"></a> <br>
-                            &#160;<span class="light">778-233-9116</span> &#160;<a href="tel:+7782339116"><img class="phoneicon" src="img/icons/Google%20Nexus%205%20Vector%20Mockup.svg" width="10px"></a>
-                        </p>-->
-                        <script>
-                             $(function(){
-
-                                $("#typed").typed({
-                                    //strings: ["<p id=""> <span class="+"light"+">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="+"light"+">and i'm a </span> <em>Software Developer <br></em> <span class="+"light"+">from Vancouver<br> BC Canada </span></p>"],
-                                    stringsElement: $('#typed-strings'),
-                                    typeSpeed: 30,
-                                    backDelay: 500,
-                                    loop: false,
-                                    contentType: 'html', // or text
-                                    // defaults to false for infinite loop
-                                    loopCount: false,
-                                    callback: function(){ foo(); },
-                                    resetCallback: function() { newTyped(); }
-                                });
-
-                                $(".reset").click(function(){
-                                    $("#typed").typed('reset');
-                                });
-
-                            });
-
-                            function newTyped(){ /* A new typed object */ }
-
-                            function foo(){ console.log("Callback"); }
-                        </script>
-                        <!--<div id="typed-strings">
-                            <p>Typed.js is a <strong>jQuery</strong> plugin.</p>
-                            <p>It <em>types</em> out sentences.</p>
-                        </div>-->
-                        
+                        <a  href="https://medium.com/dplus" class="fade2" target="_blank"><img src="img/icons/medium-seeklogo.com.svg" width=25 alt="Medium icon"></a>
+                        <a  href="https://twitter.com/Capt_dt" class="fade2" target="_blank"><img src="img/icons/twitter%20round.svg" width=25 alt="Twitter icon"></a>
+                        <a  href="https://github.com/capdt" class="fade2" target="_blank"><img src="img/icons/github-logo-reverse.svg" width=25 alt="Github icon"></a>
                     </div>
                 </div>
             </div>
-        </header>
-        
-
+        </header>     
+        <!--Main section of the website-->
         <main>
-            <a name="toTheButton"></a>
-            <button type="button" id="backButton"><span class="glyphicon" aria-hidden="true"></span>Close</button>
-            <!--This enables the grid structure where going to use-->
+            <a id="toTheButton"></a>
+            <button type="button" id="backButton">Close</button>
             <div id= "mainMenu" class="active">
+                <!--First row of cards-->
                 <div class="grid" id="firstRow">
                     <!--This enables the 3-10 grid structure-->
                     <div class="col-3of10 button" id="profileButton">
@@ -101,11 +78,9 @@
                     <!--This enables the 3-10 grid structure-->
                     <div class="col-3of10 button" id="projectWindow">
                         <p>PROJECTS</p>
-                        <!--This loads the feed into the box using the widget0 js-->
-                        <!--<div id="gpluswidget" data-id="100138189521588320824" data-key="AIzaSyC3pRnGiAe2hfbD1abYQOV7myn8Q5_mxrY" data-posts="10" data-lang="yes" data-bkg="transparent" data-padding="20" data-radius="0" data-txt="fffefe" data-link="36c" data-favicon="yes" data-header="no" data-footer="no" data-page="no"></div>-->
                     </div>
-                    <!--Place the code below where you want the widget to render-->
                  </div>
+                 <!--Second row of cards-->
                 <div class="grid" id="secondRow">
                     <!--This enables the 1p5of10 grid structure-->
                     <div class="col-3of10 button" id="contactButton">
@@ -124,36 +99,43 @@
                     </div>
                 </div>
             </div>
-
-
+            <!--All the containers that will display the information needed when the button that corrsponding card at the top has been clicked-->
             <div class="grid">
-
-                <!--This containers are like windows that will display the information needed when the button that referrs to the div has been clicked-->
+                <!--Profile card section-->
                 <div id="profile-card" class="displaybox display-none">
+                    <!--Left Section-->
                     <div class="col-4of10 leftDisplayBox">
                         <img id="profilePicLarge" src="img/profile%20pic%20large.jpg" alt="Profile picture">
                     </div>
+                    <!--Right Section-->
                     <div class="col-6of10 rightDisplayBox">
-                        <!--<span class="glyphicon glyphicon-user white" aria-hidden="true"></span>-->
                         <div id="profile-cardMain">
-                        <!--<p class="leftTag">Profile</p>-->
-                        <!--<div class="underline"></div>-->
+                            <!--Right section content-->
                             <table>
                                 <tr>
                                     <td class="leftColumn">Name</td>
                                     <td class="rightColumn">Dolapo Toki</td>
                                 </tr>
-                                <tr class="spacer"></tr>
+                                <tr class="spacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td class="leftColumn">Born</td>
                                     <td class="rightColumn"> 26th December 1994 </td>
                                 </tr>
-                                <tr class="spacer"></tr>
+                                <tr class="spacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td class="leftColumn">Ocupation</td>
                                     <td class="rightColumn"> Student </td>
                                 </tr>
-                                 <tr class="spacer"></tr>
+                                 <tr class="spacer">
+                                     <td></td>
+                                     <td></td>
+                                 </tr>
                             </table>
                             <p class="leftTag projectDetails">Short Bio</p>
                             <div class="underline"></div>
@@ -161,62 +143,65 @@
                         </div>
                     </div>
                 </div>
-                <!--This containers are like windows that will display the information needed when the button that referrs to the div has been clicked-->
+                <!--Experience card section-->
                 <div id="experience-card" class="displaybox display-none">
-                    <!--Content is dynamically loaded-->
+                    <!--Content is dynamically loaded using javascript-->
                 </div>
+                <!--Contact card section-->
                 <div id="contact-card" class="displaybox display-none">
-                    
+                    <!--Left section-->
                     <div class="col-4of10 leftDisplayBox">
-                       <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Simon+Fraser+University+(Surrey)&key=AIzaSyBjZv_lDvhv1khZ7VOrdcGoeRWHcIEGMWs&zoom=16"></iframe>
-
+                        <!--Load google maps-->
+                       <iframe style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Simon+Fraser+University+(Surrey)&key=AIzaSyBjZv_lDvhv1khZ7VOrdcGoeRWHcIEGMWs&zoom=16"></iframe>
                     </div>
-                    <div class="col-6of10 rightDisplayBox" >                        
-                        <!--<span class="glyphicon glyphicon glyphicon-send white" aria-hidden="true"></span>-->
+                    <!--Right section-->
+                    <div class="col-6of10 rightDisplayBox">
+                        <!--Right section contenet-->
                         <div id="contact-cardMain">
-                            <!--<p class="leftTag">Contact Me</p>
-                            <div class="underline"></div>-->
-                            <!--<form  action="mailto: dolapotoki@gmail.com" method="post" enctype="text/plain">
-                                <P><label class="leftLabel">Name</label><input class="rightLabel" type="text" name="Name"></P>
-                                <P><label class="leftLabel">Email</label><input class="rightLabel"  type="email" name="Email"></P>
-                                <P><label class="leftLabel">Subject</label><input class="rightLabel" type="text" name="Subject"></P>
-                                <P><label class="leftLabel">Message</label><textarea class="rightLabel" id="messageBox" name="Message"></textarea></P>
-                                <div id="submitMessage"><button type="submit" class="btn btn-success" value="Send"><span class="glyphicon glyphicon glyphicon-send white" aria-hidden="true"></span> Submit</button></div>
-                                
-                            </form>
-                            <p class="leftTag">Contact Info</p>
-                            <div class="underline"></div>-->
                             <table>
                                 <tr>
                                     <td class="leftColumn" ><span class="glyphicon glyphicon-map-marker white" aria-hidden="true"></span></td>
                                     <td class="rightColumn">Surrey, BC V5A 1S6, Canada</td>
                                 </tr>
-                                <tr class="spacer"></tr>
+                                <tr class="spacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td class="leftColumn"><span class="glyphicon glyphicon-envelope white"  aria-hidden="true"></span></td>
                                     <td class="rightColumn">dolapotoki@gmail.com</td>
                                 </tr>
-                                <tr class="spacer"></tr>
+                                <tr class="spacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
-                                    <td class="leftColumn"><span class="glyphicon glyphicon-phone" araia-hidden="true"></span></td>
+                                    <td class="leftColumn"><span class="glyphicon glyphicon-phone white" aria-hidden="true"></span></td>
                                     <td class="rightColumn">778-233-9116</td>
                                 </tr>
-                                 <tr class="spacer"></tr>
+                                 <tr class="spacer">
+                                     <td></td>
+                                    <td></td>
+                                 </tr>
                             </table>
-
                         </div>
                     </div>
                 </div>
+                <!--Education card section-->
                 <div id="education-card" class="displaybox display-none">
+                    <!--Takes the full section-->
                     <div class="col-10of10 rightDisplayBox">
-                        <!--<span class="glyphicon glyphicon glyphicon-send white" aria-hidden="true"></span>-->
+                        <!--Main card content-->
                         <div id="education-cardMain">
                             <table>
-                                    <tr>
-                                        <td class="leftColumn">Jan 2013 - Present</td>
-                                        <td class="rightColumn">BSc Major Computing Science. </td>
-                                    </tr>
-                                <tr class="miniSpacer"></tr>
+                                <tr>
+                                    <td class="leftColumn">Jan 2013 - Present</td>
+                                    <td class="rightColumn">BSc Major Computing Science. </td>
+                                </tr>
+                                <tr class="miniSpacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td class="leftColumnHide">
                                         &nbsp;
@@ -225,7 +210,10 @@
                                         BSc Minor Interactive Arts & Technology
                                     </td>
                                 </tr>
-                                <tr class="miniSpacer"></tr>
+                                <tr class="miniSpacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td class="leftColumnHide">
                                         &nbsp;
@@ -234,13 +222,19 @@
                                         Simon Fraser University
                                     </td>
                                 </tr>
-                                    <tr class="spacer"></tr>
-                                    
+                                    <!--Brakes the table so it like there's a dision between the content-->
+                                    <tr class="spacer">
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     <tr>
                                         <td class="leftColumn">Jan 2011 - Dec 2012</td>
                                         <td class="rightColumn"> UTP II Computer Science.</td>       
                                     </tr>
-                                <tr class="miniSpacer"></tr>
+                                <tr class="miniSpacer">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td class="leftColumnHide">
                                         &nbsp;
@@ -249,72 +243,31 @@
                                         Fraser International College
                                     </td>
                                 </tr>
-                                    <tr class="spacer"></tr>
+                                    <tr class="spacer">
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div id="resume-card" class="displaybox display-none">
-                    <div class="col-4of10 leftDisplayBox">
-                        <p>Resume</p>
-
-                    </div>
-                    <div class="col-6of10 rightDisplayBox">
-
-
-                    </div>
-                </div>
+                <!--Project card section-->
                 <div class="display-none displaybox grid" id="project-card">
-                    <!--<div class="col-4of10 leftDisplayBox">
-                        <iframe width="100" height="100" src="https://www.youtube.com/embed/ziwDvejyrA0?controls=0"></iframe>
-                    </div>
-                    <div class="col-6of10 rightDisplayBox">
-                        <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
-                        <div id="profile-cardMain">
-                            <h1 class="leftTag" id="projectTitle"> Project Title</h1>
-                            <div class="underline"></div>
-                            <p class="paragraphWhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue lectus, in gravida mauris. Quisque libero felis, aliquet sit amet lectus ac, malesuada efficitur erat. In quam ante, sagittis ut ante non, viverra tempor mauris. Nunc et rutrum nunc. Pellentesque id ornare quam. Quisque consectetur urna in hendrerit luctus. Nullam varius lacinia mi ut elementum. Ut mattis hendrerit lorem, ut auctor purus scelerisque convallis</p>
-                            
-                            <h1 class="leftTag" id="projectDetailsTitle"> Project details</h1>
-                            <div class="underline"></div>
-                            <div class="col-10of10" id="projectDetails">
-                                <div class="col-3of10 projectDetailsItems" id="projectTagSection">
-                                    <P class="tagParagraphWhite">C++</P>
-                                    <P class="tagParagraphWhite">D++</P>
-                                    <P class="tagParagraphWhite">C++</P>
-                                    <P class="tagParagraphWhite">D++</P>
-                                </div>
-                                <div class="col-3of10 projectDetailsItems" id="websiteSection">
-                                    <a href="http://www.w3schools.com">Project website</a>
-                                </div>
-                                <div class="col-3of10 projectDetailsItems" id="gitProjectSection">
-                                    <a href="https://www.google.ca/#gfe_rd=cr&gws_rd=ssl" target="_blank"><img src="img/icons/github-logo.svg" width="30px"></a>
-                                                                       
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div>
-                              
-            </div>
-    
+                    <!--Content is dynamically loaded using javascipt-->
+                </div>                 
+            </div>    
         </main>
-        <script src="js/base.js"></script>
+        <!--Load scripts for acess to my apis using google's api's javascript client -->
+        <script type="text/javascript" src="js/base.js"></script>
         <script src="https://apis.google.com/js/client.js?onload=init" async></script>
         <script type="text/javascript">
             function init() {
                 dplus.website.init('https://' + 'dolapo-websiteapi.appspot.com' + '/_ah/api');
             }
-    </script>
+        </script>
+        <!--Load script -->
+        <script type="text/javascript" src="js/script.js"></script>
+        <!--Load bootstraps javascript-->
+        <script src="bootstrap/dist/js/bootstrap.js"></script>     
     </body>
-    <footer>
-        
-        
-    </footer>
-
-    <script type="text/javascript" src="js/script.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.js"></script>
-    
-    
-
 </html>
