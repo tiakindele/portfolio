@@ -27,8 +27,6 @@ body{
     text-align: left;
     overflow: auto;
     color: #f2f2f2;
-    
-     
 }
 #projectwindow > p{
    display: inline-block;
@@ -61,18 +59,14 @@ em{
 /*Affects the left side of the top pannel*/
 #leftPersonalInfo{
     display: inline-block;
-    
 }
-
 #leftPersonalInfo p{
     display: inline-block;
     float: right;
     margin-left: 20px;
     margin-top: 15px;
     font-size: 12px;
-    
 }
-
 /*Affects the contact icons in the top pannel */
 #contactIcons{
     display: inline-block;
@@ -247,9 +241,6 @@ em{
     overflow: auto;
     line-height: 200% !important;
 }
-
-
-
 /******Media Querys******
 *************************/
 @media (max-width: 770px){
@@ -544,9 +535,6 @@ iframe{
     margin-top: 1em;
     margin-bottom: .7em;
 }
-
-
-
 /****Ainimations****
 *******************/
 .active {
@@ -557,7 +545,6 @@ iframe{
     -o-animation: activate 1.5s ease;
     animation: activate 1.5s ease;
 }
-
 .deactivate {
     -webkit-animation: remove .5s ease;
     -moz-animation: remove .5s ease;

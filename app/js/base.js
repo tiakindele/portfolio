@@ -1,9 +1,11 @@
 
-
+//GLobal name space
 var dplus=dplus || {};
 
+//The specific project under the global name space
 dplus.website= dplus.website || {};
 
+//Init functioin needed to load the api's
 dplus.website.init= function (apiRoot){
  // Loads the OAuth and dolapotoki's' APIs asynchronously   
   var apisToLoad;
@@ -13,59 +15,51 @@ dplus.website.init= function (apiRoot){
       enableUiElements()
     }
   }
-
   apisToLoad = 1; // must match number of calls to gapi.client.load()
   gapi.client.load('dolapoapi', 'v1', callback, apiRoot);
-  //gapi.client.load('oauth2', 'v2', callback);
 }
 
+//Api call to get the projects 
 function getProjects(callback){
     var message;
+    //Actuall call to the api using the gapi client
     gapi.client.dolapoapi.getProject(
     {
       'appid': "test4"
     }).execute(function (resp) {
       if (!resp.code) {
-        //get the responce and convert it to a string 
+        //get the responce assign it to message 
         message=resp;
-        //console.log(resp);
       }
+      //Call back to make afer we get the resp : reason async call
       if(callback && typeof callback == "function") {
+        //Return the message
         return callback(message);
-        //console.log(message);
-        }
+      }
     });
-    //console.log(message);
-    
 }
+//Api call to get the work experiences
 function getExperience(callback){
     var message;
+    //Actuall call to the api using the gapi client
     gapi.client.dolapoapi.getExperience(
     {
       'appid': "test4"
     }).execute(function (resp) {
       if (!resp.code) {
-        //get the responce and convert it to a string 
+        //Get the responce assign it to message
         message=resp;
-        //console.log(resp);
       }
+      //Call back to make afer we get the resp : reason async call
       if(callback && typeof callback == "function") {
+        //Return the message
         return callback(message);
-        //console.log(message);
         }
     });
-    //console.log(message);
     
 }
+//Visually enable ui elements that deped on having the gapi client loaded 
 function enableUiElements(){
-        $("#projectWindow").addClass("cardLoaded");
-        $("#experienceButton").addClass("cardLoaded");
-        console.log("api loaded ui enabled");
+  $("#projectWindow").addClass("cardLoaded");
+  $("#experienceButton").addClass("cardLoaded");
 }
-
-
-// getMyProjects(
-//     function(message) {
-//   //using a callback to get the data
-//   console.log(message);
-// });

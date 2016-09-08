@@ -245,47 +245,50 @@ $(document).ready(function () {
         var d1 = document.getElementById('project-card');
         //Incsert the html content
         d1.insertAdjacentHTML('beforeend', doc);
-        //Ensures we dont have to run this method a secont time 
+        //Ensure we dont have to run this method a second time when the page is reloaded
         projectDataRecieved=true;
     }
     //Method to generate the the experience detailed view and add it to the index.html document
     function createExperienceCard(image,company,role,workDetails){
+        //Defaulf varibles for creating the detailed experience view 
         var pathToImage="img/skynation.png";
         var id="defaultCompanyImage";
+        //Change defaulf variables if the name of the company is sfu
         if(company=="Simon Fraser University"){
             pathToImage="img/sfuImage.jpg";
             id="sfuImage";
         }
+        //Fill the boilerplate layout with data
         var doc='<div class="col-4of10 leftDisplayBox"> <img  id= '+id+' class="companyImage" src='+pathToImage+' alt="Company image"> </div> <div class="col-6of10 rightDisplayBox cardSpacer"> <!--<span class="glyphicon glyphicon-user white" aria-hidden="true"></span>--> <div id="profile-cardMain"> <!--<p class="leftTag">Profile</p>--> <!--<div class="underline"></div>--> <table> <tr> <td class="leftColumn">Comapany</td> <td class="rightColumn">'+company+'</td> </tr> <tr class="spacer"></tr> <tr> <td class="leftColumn">Role</td> <td class="rightColumn">'+role+'</td> </tr> <tr class="spacer"></tr> <!--<tr> <td class="leftColumn">Ocupation</td> <td class="rightColumn"> Student </td> </tr>--> <tr class="spacer"></tr> </table> <p class="leftTag projectDetails">Work Details</p> <div class="underline"></div> <p class="kick">'+workDetails+'</p> </div> </div> ';
         var d2 = document.getElementById('experience-card');
         d2.insertAdjacentHTML('beforeend',doc);
+         //Ensure we dont have to run this method a second time when the page is reloaded
         experiencDataRecieved=true;
     }
+    //Typed.js script to animate the bio
     $(function(){
+        $("#typed").typed({
+            stringsElement: $('#typed-strings'),
+            typeSpeed: 40,
+            backDelay: 500,
+            loop: false,
+            contentType: 'html', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            callback: function(){ foo(); },
+            resetCallback: function() { newTyped(); }
+        });
 
-    $("#typed").typed({
-        //strings: ["<p id=""> <span class="+"light"+">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="+"light"+">and i'm a </span> <em>Software Developer <br></em> <span class="+"light"+">from Vancouver<br> BC Canada </span></p>"],
-        stringsElement: $('#typed-strings'),
-        typeSpeed: 30,
-        backDelay: 500,
-        loop: false,
-        contentType: 'html', // or text
-        // defaults to false for infinite loop
-        loopCount: false,
-        callback: function(){ foo(); },
-        resetCallback: function() { newTyped(); }
+        $(".reset").click(function(){
+            $("#typed").typed('reset');
+        });
+
     });
 
-    $(".reset").click(function(){
-        $("#typed").typed('reset');
-    });
+    function newTyped(){ /* A new typed object */ }
 
-});
-
-function newTyped(){ /* A new typed object */ }
-
-function foo(){ console.log("Callback"); }
-
+    function foo(){ console.log("Callback"); }
+    /************************************** */
 });
 
    
