@@ -27,6 +27,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="js/typed.js" type="text/javascript"></script>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
         <title>Dolapo Toki</title>
         <meta name="Dolapo Toki" content="Resume">
@@ -43,7 +44,8 @@
                     <div id="leftIntroductions" class="headerMargin">
                         <span id="typed"></span>
                         <div  id="typed-strings">
-                            <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and i'm a </span> <em>Software Developer <br></em> <span class="light">from Vancouver<br> BC Canada </span></p>
+                            <p class="light">Hello there </p>
+                            <p> <span class="light">My name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and i'm a </span> <em>Software Engineer <br></em> <span class="light">from Vancouver<br> BC Canada </span></p>
                         </div>
                     </div>              
                 </div>
@@ -60,6 +62,7 @@
         </header>     
         <!--Main section of the website-->
         <main>
+            <button type="button" id="testButton">Sfuffle</button>
             <a id="toTheButton"></a>
             <button type="button" id="backButton">Close</button>
             <div id= "mainMenu" class="active">
@@ -67,35 +70,36 @@
                 <div class="grid" id="firstRow">
                     <!--This enables the 3-10 grid structure-->
                     <div class="col-3of10 button" id="profileButton">
-                        <p>PROFILE</p>
-                        <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
+                        <p id="profileButtonText">PROFILE</p>
+                        <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span>
                     </div>
                     <!--This enables the 3-10 grid structure-->
                     <div class="col-3of10 button" id="experienceButton">
-                      <p>EXPERIENCE</p>
-                        <span class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span>
+                        <p id="experienceButtonText">EXPERIENCE</p>
+                        <span id="experienceButtonIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span>
                     </div>
                     <!--This enables the 3-10 grid structure-->
                     <div class="col-3of10 button" id="projectWindow">
-                        <p>PROJECTS</p>
+                        <p id="projectWindowText">PROJECTS</p>
+                        <span id="projectWindowIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span>
                     </div>
                  </div>
                  <!--Second row of cards-->
                 <div class="grid" id="secondRow">
                     <!--This enables the 1p5of10 grid structure-->
                     <div class="col-3of10 button" id="contactButton">
-                      <p>CONTACT ME</p>
-                        <span class="glyphicon glyphicon-send white" aria-hidden="true"></span>
+                      <p id="contactButtonText">CONTACT ME</p>
+                        <span id="contactButtonIcon" class="glyphicon glyphicon-send white" aria-hidden="true"></span>
                     </div>
                     <!--This enables the 3of10 grid structure-->
                     <div class="col-3of10 button" id="educationButton" >
-                       <p>EDUCATION</p>
-                        <span class="glyphicon glyphicon-book white" aria-hidden="true"></span>
+                       <p id="educationButtonText">EDUCATION</p>
+                        <span id="educationButtonIcon" class="glyphicon glyphicon-book white" aria-hidden="true"></span>
                     </div>
                     <!--This enables the 1p5of10 grid structure-->
                      <div class="col-3of10 button" id="resumeButton" >
-                       <p>RESUME</p>
-                        <span class="glyphicon glyphicon-download white" aria-hidden="true"></span>
+                       <p  id="resumeButtonText" >RESUME</p>
+                        <span id="resumeButtonIcon" class="glyphicon glyphicon-download white" aria-hidden="true"></span>
                     </div>
                 </div>
             </div>
@@ -132,10 +136,6 @@
                                     <td class="leftColumn">Ocupation</td>
                                     <td class="rightColumn"> Student </td>
                                 </tr>
-                                 <tr class="spacer">
-                                     <td></td>
-                                     <td></td>
-                                 </tr>
                             </table>
                             <p class="leftTag projectDetails">Short Bio</p>
                             <div class="underline"></div>
