@@ -4,14 +4,17 @@ $(document).ready(function () {
     //Global variables
     var socialMediaHrefAdresses=["https://medium.com/dplus","https://twitter.com/Capt_dt","https://github.com/capdt"];
     var projectWebsiteHrefAdresses=["https://kuelii.com/","http://penguinerun.appspot.com/","http://zombie-attack.appspot.com/"];
-    //todo
-    var projectGitHrefAdresses=[];
+    var projectGitHrefAdresses=["https://github.com/Capdt/penguinRunDemoRepo","https://github.com/Capdt/zombieAttackDemoRepo"," "];
     var loadCard;
     var colorChange;
     var experiencDataRecieved=false;
     var projectDataRecieved=false;
     var t0,t1;
+    var k=0;
     var cardClicked;
+    var allowRun=false;
+    var profileButtonMovement=[];
+    var cards=['profileButton','experienceButton','projectWindow','contactButton','educationButton','resumeButton'];
     //Register onclick listener
     $("a").click(function(){
         var hrefValue=$(this).attr("href");
@@ -42,81 +45,85 @@ $(document).ready(function () {
            //do nothing
        }
     });
+    enableClickListner();
     //Register click listener for the cards in the main menu
-    $(".button").click(function(){
-        //Send card-item click data to google analytics 
-        cardClicked=$(this).find("p").text();
-        ga('send', 'event', {
-                'eventCategory': 'Card item',
-                'eventAction': 'click',
-                'eventLabel': cardClicked
-        });
-        if(cardClicked=="PROFILE")
-        {
-            //get the time when the card was clicked
-            t0=performance.now();
-            loadCard="profile-card";
-            colorChange="#009fd4"        
-        }
-        else if (cardClicked=="EXPERIENCE")
-        {
-             //get the time when the card was clicked
-            t0=performance.now();
-            loadCard="experience-card";
-            colorChange="#8c3"
-            if(!experiencDataRecieved){
-                window.getExperience(myExperienceCallBack);
+    function enableClickListner(){
+        $(".button").click(function(){
+            //Send card-item click data to google analytics 
+            cardClicked=$(this).find("p").text();
+            ga('send', 'event', {
+                    'eventCategory': 'Card item',
+                    'eventAction': 'click',
+                    'eventLabel': cardClicked
+            });
+            if(cardClicked=="PROFILE")
+            {
+                //get the time when the card was clicked
+                t0=performance.now();
+                loadCard="profile-card";
+                colorChange="#009fd4"        
             }
-        }
-        else if (cardClicked=="CONTACT ME")
-        {
-             // get the time when the card was clicked
-            t0=performance.now();
-            loadCard="contact-card";
-            colorChange="#e6c32d"
-        }
-         else if (cardClicked=="EDUCATION")
-        {
-             //get the time when the card was clicked
-            t0=performance.now();
-            loadCard="education-card";
-            colorChange="#e67e30"
-        } 
-        else if (cardClicked=="PROJECTS")
-        {
-             //get the time when the card was clicked
-            t0=performance.now();
-            loadCard="project-card";
-            colorChange="#de2643";
-            //Makes sure we do not get new data if we have what we need
-            if(!projectDataRecieved){
-                //Call the get projects method and pass in a call back
-                window.getProjects(myProjectCallBack);
+            else if (cardClicked=="EXPERIENCE")
+            {
+                //get the time when the card was clicked
+                t0=performance.now();
+                loadCard="experience-card";
+                colorChange="#8c3"
+                if(!experiencDataRecieved){
+                    window.getExperience(myExperienceCallBack);
+                }
+                
             }
-        }
-        //If the resume tab is clicked then opena new tab with a link to the pdf file        
-        else if (cardClicked=="RESUME"){
-            loadCard="Null"
-            var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume(2016)_updated_reduced.pdf?alt=media&token=9e84b5a3-4062-47c8-bd04-74a4f08f4dc1", '_blank');
-            win.focus();
-        }
-        // Animate transition to detailed view.
-        if(loadCard!="Null")
-        {
-            //Remove the main menu
-            $("#mainMenu").attr("class","deactivate");
-            setTimeout(cardTransition,500);
-            //Add the detailed view
-            $("#"+loadCard).addClass("popin");
-            $("#backButton").addClass("popin");
-            //change the color of the back button to that of the card
-            matchColor();
-        }
-        else{
-            goToDesccription();
-        }
+            else if (cardClicked=="CONTACT ME")
+            {
+                // get the time when the card was clicked
+                t0=performance.now();
+                loadCard="contact-card";
+                colorChange="#e6c32d"
+            }
+            else if (cardClicked=="EDUCATION")
+            {
+                //get the time when the card was clicked
+                t0=performance.now();
+                loadCard="education-card";
+                colorChange="#e67e30"
+            } 
+            else if (cardClicked=="PROJECTS")
+            {
+                //get the time when the card was clicked
+                t0=performance.now();
+                loadCard="project-card";
+                colorChange="#de2643";
+                //Makes sure we do not get new data if we have what we need
+                if(!projectDataRecieved){
+                    //Call the get projects method and pass in a call back
+                    window.getProjects(myProjectCallBack);
+                }
+            }
+            //If the resume tab is clicked then opena new tab with a link to the pdf file        
+            else if (cardClicked=="RESUME"){
+                loadCard="Null"
+                var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume%202016.pdf?alt=media&token=908e5917-0128-4ebc-a6be-37260ee47a0c", '_blank');
+                win.focus();
+            }
+            // Animate transition to detailed view.
+            if(loadCard!="Null")
+            {
+                //Remove the main menu
+                $("#mainMenu").attr("class","deactivate");
+                setTimeout(cardTransition,500);
+                //Add the detailed view
+                $("#"+loadCard).addClass("popin");
+                $("#backButton").addClass("popin");
+                //change the color of the back button to that of the card
+                matchColor();
+            }
+            else{
+                goToDesccription();
+            }
 
-    });
+        });
+    }
     function cardTransition(){
         $("#backButton").show();
         $("#mainMenu").addClass("display-none");
@@ -259,9 +266,11 @@ $(document).ready(function () {
             id="sfuImage";
         }
         //Fill the boilerplate layout with data
-        var doc='<div class="col-4of10 leftDisplayBox"> <img  id= '+id+' class="companyImage" src='+pathToImage+' alt="Company image"> </div> <div class="col-6of10 rightDisplayBox cardSpacer"> <!--<span class="glyphicon glyphicon-user white" aria-hidden="true"></span>--> <div id="profile-cardMain"> <!--<p class="leftTag">Profile</p>--> <!--<div class="underline"></div>--> <table> <tr> <td class="leftColumn">Comapany</td> <td class="rightColumn">'+company+'</td> </tr> <tr class="spacer"></tr> <tr> <td class="leftColumn">Role</td> <td class="rightColumn">'+role+'</td> </tr> <tr class="spacer"></tr> <!--<tr> <td class="leftColumn">Ocupation</td> <td class="rightColumn"> Student </td> </tr>--> <tr class="spacer"></tr> </table> <p class="leftTag projectDetails">Work Details</p> <div class="underline"></div> <p class="kick">'+workDetails+'</p> </div> </div> ';
+        var doc='<div class="col-4of10 leftDisplayBox"> <img  id= '+id+' class="companyImage" src='+pathToImage+' alt="Company image"> </div> <div class="col-6of10 rightDisplayBox cardSpacer"> <!--<span class="glyphicon glyphicon-user white" aria-hidden="true"></span>--> <div id="profile-cardMain"> <!--<p class="leftTag">Profile</p>--> <!--<div class="underline"></div>--> <table> <tr> <td class="leftColumn">Comapany</td> <td class="rightColumn">'+company+'</td> </tr> <tr class="spacer"></tr> <tr> <td class="leftColumn">Role</td> <td class="rightColumn">'+role+'</td> </tr></table><p class="leftTag projectDetails">Work Details</p> <div class="underline"></div> <p class="kick">'+workDetails+'</p> </div> </div> ';
         var d2 = document.getElementById('experience-card');
         d2.insertAdjacentHTML('beforeend',doc);
+        //Need to let the call match color after the card is loaded
+        matchColor();
          //Ensure we dont have to run this method a second time when the page is reloaded
         experiencDataRecieved=true;
     }
@@ -269,8 +278,8 @@ $(document).ready(function () {
     $(function(){
         $("#typed").typed({
             stringsElement: $('#typed-strings'),
-            typeSpeed: 40,
-            backDelay: 500,
+            typeSpeed: 30,
+            backDelay: 1000,
             loop: false,
             contentType: 'html', // or text
             // defaults to false for infinite loop
@@ -289,6 +298,236 @@ $(document).ready(function () {
 
     function foo(){ console.log("Callback"); }
     /************************************** */
+    //Click listner for the test shuffle button on the html
+    $("#testButton").click(function(){
+        shuffleCard2("profileButton",10);
+
+    });
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    //Shuffle card usisng zoomin and out effect
+    function shuffleCard(card1Id,card2Id){
+        //animate the cards leaving 
+        $("#"+card1Id).addClass('animated  zoomOut');
+        $("#"+card2Id).addClass('animated  zoomOut');
+        
+        //Get the items
+        var card1Name=document.getElementById(card1Id+"Text").innerHTML;
+        var card1Icon=document.getElementById(card1Id+"Icon").className;
+        var card1Color=(window.getComputedStyle(document.getElementById(card1Id))).getPropertyValue('background-color');
+        //Get the second ites details
+        var card2Name=document.getElementById(card2Id+"Text").innerHTML;
+        var card2Icon=document.getElementById(card2Id+"Icon").className;
+        var card2Color=(window.getComputedStyle(document.getElementById(card2Id))).getPropertyValue('background-color');;
+
+        $("#"+card2Id).one(' mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+            console.log("ddd");
+        
+            $("#"+card1Id).removeClass('zoomOut');
+            $("#"+card2Id).removeClass('zoomOut');
+            
+            //Switch the items
+            document.getElementById(card1Id+"Text").innerHTML=card2Name;
+            document.getElementById(card1Id+"Icon").className=card2Icon;
+            document.getElementById(card1Id).style.backgroundColor=card2Color;
+
+            document.getElementById(card2Id+"Text").innerHTML=card1Name;
+            document.getElementById(card2Id+"Icon").className=card1Icon;
+            document.getElementById(card2Id).style.backgroundColor=card1Color;
+            
+            $("#"+card1Id).addClass('animated  zoomIn');
+            $("#"+card2Id).addClass('animated  zoomIn');
+            $("#"+card2Id).one('mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+                $("#"+card1Id).removeClass('zoomIn');
+                $("#"+card2Id).removeClass('zoomIn');
+            });
+            
+        });
+    }
+    //Shuffle card using card slideing effect
+    function shuffleCard2(card1Id,times){
+        //The the index of the card passed in
+        var indexOfCard=cards.indexOf(card1Id);
+        //array to hold the possibleDirections that can be moved to based on the card selected
+        var possibleDirection=[];
+        switch(indexOfCard){
+            case 0:
+                    possibleDirection.push("right");
+                    possibleDirection.push("down");
+                    break;
+            case 1:
+                    possibleDirection.push("right");
+                    possibleDirection.push("left");
+                    possibleDirection.push("down");
+                    break;
+            case 2:
+                    possibleDirection.push("left");
+                    possibleDirection.push("down");
+                    break;
+            case 3:
+                    possibleDirection.push("right");
+                    possibleDirection.push("up");
+                    break;
+            case 4:
+                    possibleDirection.push("right");
+                    possibleDirection.push("left");
+                    possibleDirection.push("up");
+                    break;
+            case 5:
+                    possibleDirection.push("left");
+                    possibleDirection.push("up");
+                    break;
+                default:
+                    //do nothing
+                    break;
+        }
+        //chose a card to switch with
+        var cardToShuffleWith=possibleDirection[getRandomInt(0,(possibleDirection.length)-1)];
+        //Perform switch animation based on the card that you chose to switch with
+        switch(cardToShuffleWith){
+            case "down":
+                    console.log("shuffle with down");
+                    var indexOftempCard1=cards.indexOf(card1Id);
+                    var indexOftempCard2=cards.indexOf(card1Id)+3;
+                    
+                    var card2Id=cards[indexOftempCard2];
+                    
+                    //run anim
+                    $("#"+card1Id).addClass('animated  slideOutDown');
+                    $("#"+card2Id).addClass('animated  slideOutUp');
+                    //change the datastructure in the card
+                    var cardvalue1=cards[indexOftempCard1];
+                    cards[indexOftempCard1]=cards[indexOftempCard2];
+                    cards[indexOftempCard2]=cardvalue1;
+                    break;
+                case "right":
+                    console.log("shuffle with right");
+                    var indexOftempCard1=cards.indexOf(card1Id);
+                    var indexOftempCard2=cards.indexOf(card1Id)+1;
+                    
+                    var card2Id=cards[indexOftempCard2];
+                    
+                    //run anim
+                    $("#"+card1Id).addClass('animated  slideOutRight');
+                    $("#"+card2Id).addClass('animated  slideOutLeft');
+                    //change the datastructure in the card
+                    var cardvalue1=cards[indexOftempCard1];
+                    cards[indexOftempCard1]=cards[indexOftempCard2];
+                    cards[indexOftempCard2]=cardvalue1;
+                    
+                    break;
+                case "left":
+                    console.log("shuffle with left");
+                    var indexOftempCard1=cards.indexOf(card1Id);
+                    var indexOftempCard2=cards.indexOf(card1Id)-1;
+                    
+                    var card2Id=cards[indexOftempCard2];
+                    
+                    //run anim
+                    $("#"+card1Id).addClass('animated  slideOutLeft');
+                    $("#"+card2Id).addClass('animated  slideOutRight');
+                    //change the datastructure in the card
+                    var cardvalue1=cards[indexOftempCard1];
+                    cards[indexOftempCard1]=cards[indexOftempCard2];
+                    cards[indexOftempCard2]=cardvalue1;
+
+                    break;
+                case "up":
+                    console.log("shuffle with up");
+                    var indexOftempCard1=cards.indexOf(card1Id);
+                    var indexOftempCard2=cards.indexOf(card1Id)-3;        
+                    var card2Id=cards[indexOftempCard2];
+                    //change the datastructure in the card
+                    var cardvalue1=cards[indexOftempCard1];
+                    cards[indexOftempCard1]=cards[indexOftempCard2];
+                    cards[indexOftempCard2]=cardvalue1;           
+                    //run anim
+                    $("#"+card1Id).addClass('animated  slideOutUp');
+                    $("#"+card2Id).addClass('animated  slideOutDown');    
+                    break;    
+                default:
+                    break;
+                }
+            
+            console.log('k ='+k);
+            k++;
+            //Register callback that keeps on calling the method the ammount of times neesed;
+            $('#'+card1Id).one('mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+                if(k<times){
+                    rewriteButtons(cards);
+                    var temp=times;
+                    shuffleCard2(cards[getRandomInt(0,5)],temp);
+                }
+                else{
+                    rewriteButtons(cards);
+                } 
+            });      
+        }
+        //This mehtod rewrites the html code for the main menu after every card is swapped needed so that the animations 
+        //can be rerun again because the effect of the class cannot be added multiple times to the html;
+        function rewriteButtons(array){
+            console.log(array);
+            var doc1=''
+            var doc2='';
+            for (i=0; i<3; i++){
+                if(array[i]=='profileButton'){
+                    doc1=doc1+'<div class="col-3of10 button" id="profileButton"> <p id="profileButtonText">PROFILE</p> <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[i]=='experienceButton'){
+                    doc1=doc1+'<div class="col-3of10 button cardLoaded" id="experienceButton"> <p id="experienceButtonText">EXPERIENCE</p> <span id="experienceButtonIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[i]=='projectWindow'){
+                    doc1=doc1+'<div class="col-3of10 button cardLoaded" id="projectWindow"> <p id="projectWindowText">PROJECTS</p> <span id="projectWindowIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[i]=='contactButton'){
+                    doc1=doc1+'<div class="col-3of10 button" id="contactButton"> <p id="contactButtonText">CONTACT ME</p> <span id="contactButtonIcon" class="glyphicon glyphicon-send white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[i]=='educationButton'){
+                    doc1=doc1+'<div class="col-3of10 button" id="educationButton" > <p id="educationButtonText">EDUCATION</p> <span id="educationButtonIcon" class="glyphicon glyphicon-book white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[i]=='resumeButton'){
+                    doc1=doc1+'<div class="col-3of10 button" id="resumeButton" > <p id="resumeButtonText" >RESUME</p> <span id="resumeButtonIcon" class="glyphicon glyphicon-download white" aria-hidden="true"></span> </div>';
+                }
+            }
+            for (j=3;j<6;j++){
+                if(array[j]=='profileButton'){
+                    doc2=doc2+'<div class="col-3of10 button" id="profileButton"> <p id="profileButtonText">PROFILE</p> <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[j]=='experienceButton'){
+                    doc2=doc2+'<div class="col-3of10 button cardLoaded" id="experienceButton"> <p id="experienceButtonText">EXPERIENCE</p> <span id="experienceButtonIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[j]=='projectWindow'){
+                    doc2=doc2+'<div class="col-3of10 button cardLoaded" id="projectWindow"> <p id="projectWindowText">PROJECTS</p> <span id="projectWindowIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[j]=='contactButton'){
+                    doc2=doc2+'<div class="col-3of10 button" id="contactButton"> <p id="contactButtonText">CONTACT ME</p> <span id="contactButtonIcon" class="glyphicon glyphicon-send white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[j]=='educationButton'){
+                    doc2=doc2+'<div class="col-3of10 button" id="educationButton" > <p id="educationButtonText">EDUCATION</p> <span id="educationButtonIcon" class="glyphicon glyphicon-book white" aria-hidden="true"></span> </div>';
+                }
+                else if(array[j]=='resumeButton'){
+                    doc2=doc2+'<div class="col-3of10 button" id="resumeButton" > <p id="resumeButtonText" >RESUME</p> <span id="resumeButtonIcon" class="glyphicon glyphicon-download white" aria-hidden="true"></span> </div>';
+                }
+            }
+            document.getElementById('firstRow').innerHTML = doc1;
+            document.getElementById('secondRow').innerHTML = doc2;
+            enableClickListner();
+            console.log(doc1);
+            console.log(doc2);
+
+        }
+
+        
+
+
+
+
+
+    //end of doc
 });
+
+
 
    
