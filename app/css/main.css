@@ -209,17 +209,17 @@ em{
 #designWork{
     background: radial-gradient(rgb(255, 255, 255), #23c0dd, #2980cb);;
 }
-#profileButton:hover, #ExperienceButton:hover, #contactButton:hover,#EducationButton:hover, #resumeButton:hover,#projectWindow:hover {
+#profileButton:hover, #experienceButton:hover, #contactButton:hover,#educationButton:hover, #resumeButton:hover,#projectWindow:hover {
     background-color: rgba(93, 93, 93, 0.77);
     box-shadow: 0px 0px 20px #f2ffaa;
     cursor: pointer;
 }
-#profileButton:active, #ExperienceButton:active, #contactButton:active,#EducationButton:active, #resumeButton:active{
+#profileButton:active, #experienceButton:active, #contactButton:active,#educationButton:active, #resumeButton:active{
     background-color: rgba(155, 155, 155, 0.93);
 }
 .leftDisplayBox{
     position: relative;
-    background-color: rgba(222, 222, 222, 0.7);
+    background-color: rgba(222, 222, 222, 0.20);
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0);
@@ -237,9 +237,9 @@ em{
     -moz-background-clip: padding;     /* Firefox 3.6 */
     -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
     background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-    height: 400px;
-    overflow: auto;
-    line-height: 200% !important;
+    min-height: 400px;
+    max-height: inherit;
+    line-height: 170% !important;
 }
 /******Media Querys******
 *************************/
@@ -279,6 +279,11 @@ em{
     }
     #defaultCompanyImage{
         margin-top: 60px;
+    }
+    figcaption{
+        padding-top: 5px;
+        font-size: .9em;
+        color:white;
     }
 
 }
@@ -320,10 +325,11 @@ em{
     position:absolute;
     width: auto;
 	height: 30px;
-	background-color: #54aad1;
+	/*background-color: #54aad1;*/
 	border: none;
 	border-radius: 4px;
 	color: white;
+    font-size: 1.3em;
     z-index: 1;
     margin-top: -13px;
 }
@@ -337,10 +343,19 @@ em{
 
 }
 table{
+    margin-top: 2em!important;
     width: 70%;
     margin: auto;
     letter-spacing: .07em;
 
+}
+figure{
+    height: inherit;
+}
+figcaption{
+    padding-top: 2px;
+    font-size: .9em;
+    color: grey;
 }
 #education-cardMain{
      position: relative;
@@ -492,6 +507,17 @@ form{
     width: 90%;
     margin: auto ;
 }
+.websiteProjectButton{
+    width: auto;
+	height: 30px;
+	background-color: #f2f2f2;
+	border: none;
+	border-radius: 4px;
+	color: #404040;
+    /*font-weight: bold;*/
+    font-style: italic;
+    z-index: 1;
+}
 .rightDisplayBox::-webkit-scrollbar{
 width:10px;
 background-color:rgba(85, 84, 84, 0.24);
@@ -525,7 +551,6 @@ iframe{
 .projectTitle{
     font-size: 19px;
     letter-spacing: .1em;
-    margin-top: 0px;
     margin-bottom: 1.5em;
     
 }
@@ -762,3 +787,4 @@ to {
     50% { opacity:0; }
     100% { opacity:1; }
 }
+/*Youtbe video controls*/
