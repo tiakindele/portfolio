@@ -38,12 +38,13 @@
             <div id="personalInfo">
                 <!--Left pannnel holds picture and short bio-->
                 <div id="leftPersonalInfo">
-                    <img src="img/profile%20pic.jpg" width="80" alt="profile pic" class="headerMargin">
+                        <img src="img/profile%20pic.jpg" width="80" alt="profile pic" class="headerMargin">
                     <!--Short Bio-->
                     <div id="leftIntroductions" class="headerMargin">
                         <span id="typed"></span>
                         <div  id="typed-strings">
-                            <p> <span class="light">Hi there my name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and i'm a </span> <em>Software Developer <br></em> <span class="light">from Vancouver<br> BC Canada </span></p>
+                            <P>Hi there</P>
+                            <p> <span class="light">My name's</span> <br><strong>Dolapo Toki</strong><br> <span class="light">and i'm a </span> <em>Software Engineer <br></em> <span class="light">from Vancouver<br> BC Canada </span></p>
                         </div>
                     </div>              
                 </div>
@@ -61,13 +62,13 @@
         <!--Main section of the website-->
         <main>
             <a id="toTheButton"></a>
-            <button type="button" id="backButton">Close</button>
+            <button type="button" id="backButton">X</button>
             <div id= "mainMenu" class="active">
                 <!--First row of cards-->
                 <div class="grid" id="firstRow">
                     <!--This enables the 3-10 grid structure-->
                     <div class="col-3of10 button" id="profileButton">
-                        <p>PROFILE</p>
+                        <p>ABOUT ME</p>
                         <span class="glyphicon glyphicon-user white" aria-hidden="true"></span>
                     </div>
                     <!--This enables the 3-10 grid structure-->
@@ -105,7 +106,10 @@
                 <div id="profile-card" class="displaybox display-none">
                     <!--Left Section-->
                     <div class="col-4of10 leftDisplayBox">
-                        <img id="profilePicLarge" src="img/profile%20pic%20large.jpg" alt="Profile picture">
+                        <figure>
+                            <img id="profilePicLarge" src="img/profile%20pic%20large.jpg" alt="Profile picture">
+                             <figcaption>pc: jay tseng</figcaption>
+                        </figure>
                     </div>
                     <!--Right Section-->
                     <div class="col-6of10 rightDisplayBox">

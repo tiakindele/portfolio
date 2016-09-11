@@ -1,4 +1,10 @@
 $(document).ready(function () {
+
+    
+        
+    // window.attachEvent("onpopstate", function(){
+
+    // });
     //This checkes what card is clicked ant then loads the corresponding card
     $("#backButton").hide();
     //Global variables
@@ -51,7 +57,7 @@ $(document).ready(function () {
                 'eventAction': 'click',
                 'eventLabel': cardClicked
         });
-        if(cardClicked=="PROFILE")
+        if(cardClicked=="ABOUT ME")
         {
             //get the time when the card was clicked
             t0=performance.now();
@@ -115,6 +121,17 @@ $(document).ready(function () {
         else{
             goToDesccription();
         }
+        //if the back button on the browser is clicked
+        window.onpopstate=function()
+        {   //if the location on the browser afer the hash is pointing to the discription
+            if (window.location.hash=="#toTheDescription"){
+                //remove the detailed view and load the main menu
+                $("#"+loadCard).addClass("display-none");
+                $("#mainMenu").attr("class","active");
+                $("#backButton").hide();
+                
+            }
+        }
 
     });
     function cardTransition(){
@@ -162,7 +179,7 @@ $(document).ready(function () {
     }
     //Change color of back button
     function matchColor(){
-        $("#backButton").css("background-color",colorChange);
+        $("#backButton").css("background-color","#8c8c8c");
         $(".leftColumn").css("background-color",colorChange);
         $(".leftLabel").css("background-color",colorChange);
     }
@@ -215,10 +232,23 @@ $(document).ready(function () {
     //Method to generate the the project detailed view and add it to the index.html document
     function createProject(videoUrl,projectTitle,projectDescription,projectTags,projectUrl,projectRepo){
         //Local Variables
+        var uid="";
         var expandedProjectTags=" ";
         var localTag=[];
         var previousComaLocation=0;
         var currentComaLocation=0;
+        for (var index=0;index<projectTitle.length;index++){
+            if(projectTitle[index]!=" "){   
+                uid=uid+projectTitle[index];
+                 //console.log("uid ="+uid);
+            }
+            else{
+                console.log("final uid = "+uid);
+                console.log(uid.length);
+                break;
+            }
+
+        }
         //Run throug the length of the project tags
         for(j=0;j<=projectTags.length;j++){
             //Search for a coma aymbol
@@ -240,13 +270,18 @@ $(document).ready(function () {
            expandedProjectTags=expandedProjectTags.concat(item);
         }
         //Fill boilerplate layout with the data recieved  
-        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="100" height="100" src="'+ videoUrl+'"></iframe> </div> <div class="col-6of10 rightDisplayBox cardSpacer"><div id="profile-cardMain"> <h1 class="leftTag projectTitle">'+projectTitle+'</h1> <div class="underline"></div> <p class="paragraphWhite kick">'+projectDescription+'</p> <h1 class="leftTag projectDetails"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems marginProjectDetails" id="projectTagSection"> '+expandedProjectTags+'</div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <a href="'+projectUrl+'" target="-blank">Project website</a> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <a id="repo" href="'+projectRepo+'" target="_blank" class="fade2"><img src="img/icons/github-logo.svg" width="30px"></a> </div> </div> </div> </div> </div>';
+        var doc='<div class="col-4of10 leftDisplayBox"> <iframe width="200" height="200" src="'+videoUrl+'" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div> <div class="col-6of10 rightDisplayBox cardSpacer"><div id="profile-cardMain"> <h1 class="leftTag projectTitle">'+projectTitle+'</h1> <div class="underline"></div> <p class="paragraphWhite kick">'+projectDescription+'</p> <h1 class="leftTag projectDetails"> Project details</h1> <div class="underline"></div> <div class="col-10of10" id="projectDetails"> <div class="col-3of10 projectDetailsItems marginProjectDetails" id="projectTagSection"> '+expandedProjectTags+'</div> <div class="col-3of10 projectDetailsItems" id="websiteSection"> <button type="button" class="websiteProjectButton fade2" id="projectButton'+uid+'">Website</button> </div> <div class="col-3of10 projectDetailsItems" id="gitProjectSection"> <a id="repo" href="'+projectRepo+'" target="_blank" class="fade2"><img src="img/icons/github-logo.svg" width="30px"></a> </div> </div> </div> </div> </div>';
         //Get the project detailed view section and add this data to it.
         var d1 = document.getElementById('project-card');
         //Incsert the html content
         d1.insertAdjacentHTML('beforeend', doc);
         //Ensure we dont have to run this method a second time when the page is reloaded
         projectDataRecieved=true;
+        
+        $('#projectButton'+uid).click(function(){
+            var win = window.open(projectUrl, '_blank');
+            win.focus();
+        });
     }
     //Method to generate the the experience detailed view and add it to the index.html document
     function createExperienceCard(image,company,role,workDetails){
