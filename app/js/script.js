@@ -11,10 +11,12 @@ $(document).ready(function () {
     var projectDataRecieved=false;
     var t0,t1;
     var k=0;
+    var nullTimes=0;
     var cardClicked;
     var allowRun=false;
     var profileButtonMovement=[];
     var cards=['profileButton','experienceButton','projectWindow','contactButton','educationButton','resumeButton'];
+    var browserStack=[];
     //animation that runs every 12 seconds
     setInterval(function(){
         //get the class on the main menu item
@@ -83,7 +85,8 @@ $(document).ready(function () {
                 //get the time when the card was clicked
                 t0=performance.now();
                 loadCard="profile-card";
-                colorChange="#009fd4"        
+                colorChange="#009fd4"
+                browserStack.push("profile-card");        
             }
             else if (cardClicked=="EXPERIENCE")
             {
@@ -91,6 +94,7 @@ $(document).ready(function () {
                 t0=performance.now();
                 loadCard="experience-card";
                 colorChange="#8c3"
+                browserStack.push("experience-card");
                 if(!experiencDataRecieved){
                     window.getExperience(myExperienceCallBack);
                 }
@@ -102,6 +106,7 @@ $(document).ready(function () {
                 t0=performance.now();
                 loadCard="contact-card";
                 colorChange="#e6c32d"
+                browserStack.push("contact-card");
             }
             else if (cardClicked=="EDUCATION")
             {
@@ -109,6 +114,7 @@ $(document).ready(function () {
                 t0=performance.now();
                 loadCard="education-card";
                 colorChange="#e67e30"
+                browserStack.push("education-card");
             } 
             else if (cardClicked=="PROJECTS")
             {
@@ -116,6 +122,7 @@ $(document).ready(function () {
                 t0=performance.now();
                 loadCard="project-card";
                 colorChange="#de2643";
+                browserStack.push("project-card");
                 //Makes sure we do not get new data if we have what we need
                 if(!projectDataRecieved){
                     //Call the get projects method and pass in a call back
@@ -143,14 +150,27 @@ $(document).ready(function () {
             else{
                 goToDesccription();
             }
-            //if the back button on the browser is clicked
+            //Listen for a page change event
             window.onpopstate=function()
-            {   //if the location on the browser afer the hash is pointing to the discription
-                if (window.location.hash=="#toTheDescription"){
-                    //remove the detailed view and load the main menu
-                    $("#"+loadCard).addClass("display-none");
-                    $("#mainMenu").attr("class","active");
-                    $("#backButton").hide();
+            {   //If the stack greater than 0 then there we're in a card
+                if(browserStack.length>0){
+                    ///If the location on the browser afer the hash is pointing to the description
+                    if (window.location.hash=="#toTheDescription"){
+                        //remove the detailed view and load the main menu
+                        $("#"+loadCard).addClass("display-none");
+                        $("#mainMenu").attr("class","active");
+                        $("#backButton").hide();
+                        //Remove item from stack
+                        browserStack.pop();
+                    }
+                    //IF the hash is empty then we are trying to go back to the main menu
+                    else if(window.location.hash==""){
+                       $("#"+loadCard).addClass("display-none");
+                        $("#mainMenu").attr("class","active");
+                        $("#backButton").hide();
+                        //Remove item from stack
+                        browserStack.pop();
+                    }
                     
                 }
             }
