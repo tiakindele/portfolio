@@ -1,16 +1,10 @@
 $(document).ready(function () {
-
-    
-        
-    // window.attachEvent("onpopstate", function(){
-
-    // });
     //This checkes what card is clicked ant then loads the corresponding card
     $("#backButton").hide();
     //Global variables
     var socialMediaHrefAdresses=["https://medium.com/dplus","https://twitter.com/Capt_dt","https://github.com/capdt"];
     var projectWebsiteHrefAdresses=["https://kuelii.com/","http://penguinerun.appspot.com/","http://zombie-attack.appspot.com/"];
-    var projectGitHrefAdresses=["https://github.com/Capdt/penguinRunDemoRepo","https://github.com/Capdt/zombieAttackDemoRepo"," "];
+    var projectGitHrefAdresses=["https://github.com/Capdt/penguinRunDemoRepo","https://github.com/Capdt/zombieAttackDemoRepo"," https://github.com/Capdt/kueliiDemoRepo"];
     var loadCard;
     var colorChange;
     var experiencDataRecieved=false;
@@ -21,6 +15,28 @@ $(document).ready(function () {
     var allowRun=false;
     var profileButtonMovement=[];
     var cards=['profileButton','experienceButton','projectWindow','contactButton','educationButton','resumeButton'];
+    //animation that runs every 12 seconds
+    setInterval(function(){
+        //get the class on the main menu item
+        var temp=$('#mainMenu').attr('class');
+        var temp2="";
+        //run a for loop to get the first class attached to the mainMenu
+        for(var i=0;i<temp.length;i++){
+            if(temp[i]==" "){
+                break;
+            }
+            else{
+                temp2+=temp[i];
+            }
+        }
+        k=0;
+        //Run the shuffle animation if the screen of the window is greater than 550
+        if($(document).width()>550){
+            if(temp2=="active"){
+                shuffleCard2(cards[getRandomInt(0,5)],getRandomInt(2,4));
+            }
+        }
+    }, 12000);
     //Register onclick listener
     $("a").click(function(){
         var hrefValue=$(this).attr("href");
@@ -109,7 +125,7 @@ $(document).ready(function () {
             //If the resume tab is clicked then opena new tab with a link to the pdf file        
             else if (cardClicked=="RESUME"){
                 loadCard="Null"
-                var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume(2016)_updated_reduced.pdf?alt=media&token=9e84b5a3-4062-47c8-bd04-74a4f08f4dc1", '_blank');
+                var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume_2016_final.pdf?alt=media&token=a08c0cb3-694e-4c5e-b327-3feba9f75b4b", '_blank');
                 win.focus();
             }
             // Animate transition to detailed view.
@@ -151,7 +167,7 @@ $(document).ready(function () {
         // get the time when the back button was pressed 
         t1=performance.now();
         var timeSpent=t1-t0;
-        console.log("time spent looking at " +cardClicked+" :"+timeSpent+ " miliseconds" )
+        //console.log("time spent looking at " +cardClicked+" :"+timeSpent+ " miliseconds" )
         //send time spent looking at the page to google analytics
         ga('send', {
             hitType: 'timing',
@@ -192,10 +208,10 @@ $(document).ready(function () {
     //Callback method for creating the project detailed view when the asyncronus call to the api is made
     function myProjectCallBack(message){
          var output = message.items;
-         console.log(output.length);
+         //console.log(output.length);
          //Get each project
          for(i = 0; i < output.length; i++){
-             console.log(i);
+             //console.log(i);
              createProject(output[i].videoUrl,output[i].projectTitle,output[i].description,output[i].technolgyUsed,output[i].websiteLink,output[i].gitHubUrl);
          }
          //Add click listner for the a tags after the projects have been loaded. needs to be done here after the html has been added 
@@ -249,8 +265,8 @@ $(document).ready(function () {
                  //console.log("uid ="+uid);
             }
             else{
-                console.log("final uid = "+uid);
-                console.log(uid.length);
+                //console.log("final uid = "+uid);
+                //console.log(uid.length);
                 break;
             }
 
@@ -296,7 +312,7 @@ $(document).ready(function () {
         var id="defaultCompanyImage";
         //Change defaulf variables if the name of the company is sfu
         if(company=="Simon Fraser University"){
-            pathToImage="img/sfuImage.jpg";
+            pathToImage="img/sfuImage.png";
             id="sfuImage";
         }
         //Fill the boilerplate layout with data
@@ -312,8 +328,8 @@ $(document).ready(function () {
     $(function(){
         $("#typed").typed({
             stringsElement: $('#typed-strings'),
-            typeSpeed: 30,
-            backDelay: 1000,
+            typeSpeed: 25,
+            backDelay: 2000,
             loop: false,
             contentType: 'html', // or text
             // defaults to false for infinite loop
@@ -329,8 +345,10 @@ $(document).ready(function () {
     });
 
     function newTyped(){ /* A new typed object */ }
-
-    function foo(){ console.log("Callback"); }
+    //call back method after the words have finished their animation
+    function foo(){ 
+        
+     }
     /************************************** */
     //Click listner for the test shuffle button on the html
     $("#testButton").click(function(){
@@ -357,7 +375,6 @@ $(document).ready(function () {
         var card2Color=(window.getComputedStyle(document.getElementById(card2Id))).getPropertyValue('background-color');;
 
         $("#"+card2Id).one(' mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
-            console.log("ddd");
         
             $("#"+card1Id).removeClass('zoomOut');
             $("#"+card2Id).removeClass('zoomOut');
@@ -422,7 +439,7 @@ $(document).ready(function () {
         //Perform switch animation based on the card that you chose to switch with
         switch(cardToShuffleWith){
             case "down":
-                    console.log("shuffle with down");
+                    //console.log("shuffle with down");
                     var indexOftempCard1=cards.indexOf(card1Id);
                     var indexOftempCard2=cards.indexOf(card1Id)+3;
                     
@@ -437,7 +454,7 @@ $(document).ready(function () {
                     cards[indexOftempCard2]=cardvalue1;
                     break;
                 case "right":
-                    console.log("shuffle with right");
+                    //console.log("shuffle with right");
                     var indexOftempCard1=cards.indexOf(card1Id);
                     var indexOftempCard2=cards.indexOf(card1Id)+1;
                     
@@ -453,7 +470,7 @@ $(document).ready(function () {
                     
                     break;
                 case "left":
-                    console.log("shuffle with left");
+                    //console.log("shuffle with left");
                     var indexOftempCard1=cards.indexOf(card1Id);
                     var indexOftempCard2=cards.indexOf(card1Id)-1;
                     
@@ -469,7 +486,7 @@ $(document).ready(function () {
 
                     break;
                 case "up":
-                    console.log("shuffle with up");
+                    //console.log("shuffle with up");
                     var indexOftempCard1=cards.indexOf(card1Id);
                     var indexOftempCard2=cards.indexOf(card1Id)-3;        
                     var card2Id=cards[indexOftempCard2];
@@ -485,7 +502,7 @@ $(document).ready(function () {
                     break;
                 }
             
-            console.log('k ='+k);
+           //console.log('k ='+k);
             k++;
             //Register callback that keeps on calling the method the ammount of times neesed;
             $('#'+card1Id).one('mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
@@ -502,38 +519,38 @@ $(document).ready(function () {
         //This mehtod rewrites the html code for the main menu after every card is swapped needed so that the animations 
         //can be rerun again because the effect of the class cannot be added multiple times to the html;
         function rewriteButtons(array){
-            console.log(array);
+            //console.log(array);
             var doc1=''
             var doc2='';
             for (i=0; i<3; i++){
                 if(array[i]=='profileButton'){
-                    doc1=doc1+'<div class="col-3of10 button" id="profileButton"> <p id="profileButtonText">PROFILE</p> <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span> </div>';
+                    doc1=doc1+'<div class="col-3of10 button" id="profileButton"> <p id="profileButtonText">ABOUT ME</p> <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[i]=='experienceButton'){
                     doc1=doc1+'<div class="col-3of10 button cardLoaded" id="experienceButton"> <p id="experienceButtonText">EXPERIENCE</p> <span id="experienceButtonIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[i]=='projectWindow'){
-                    doc1=doc1+'<div class="col-3of10 button cardLoaded" id="projectWindow"> <p id="projectWindowText">PROJECTS</p> <span id="projectWindowIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
+                    doc1=doc1+'<div class="col-3of10 button cardLoaded" id="projectWindow"><p id="projectWindowText">PROJECTS</p> <span id="projectWindowIcon" class="glyphicon glyphicon-folder-close white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[i]=='contactButton'){
-                    doc1=doc1+'<div class="col-3of10 button" id="contactButton"> <p id="contactButtonText">CONTACT ME</p> <span id="contactButtonIcon" class="glyphicon glyphicon-send white" aria-hidden="true"></span> </div>';
+                    doc1=doc1+'<div class="col-3of10 button" id="contactButton"><p id="contactButtonText">CONTACT ME</p><span id="contactButtonIcon" class="glyphicon glyphicon-send white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[i]=='educationButton'){
-                    doc1=doc1+'<div class="col-3of10 button" id="educationButton" > <p id="educationButtonText">EDUCATION</p> <span id="educationButtonIcon" class="glyphicon glyphicon-book white" aria-hidden="true"></span> </div>';
+                    doc1=doc1+'<div class="col-3of10 button" id="educationButton"><p id="educationButtonText">EDUCATION</p><span id="educationButtonIcon" class="glyphicon glyphicon-book white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[i]=='resumeButton'){
-                    doc1=doc1+'<div class="col-3of10 button" id="resumeButton" > <p id="resumeButtonText" >RESUME</p> <span id="resumeButtonIcon" class="glyphicon glyphicon-download white" aria-hidden="true"></span> </div>';
+                    doc1=doc1+'<div class="col-3of10 button" id="resumeButton" > <p id="resumeButtonText">RESUME</p> <span id="resumeButtonIcon" class="glyphicon glyphicon-download white" aria-hidden="true"></span> </div>';
                 }
             }
             for (j=3;j<6;j++){
                 if(array[j]=='profileButton'){
-                    doc2=doc2+'<div class="col-3of10 button" id="profileButton"> <p id="profileButtonText">PROFILE</p> <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span> </div>';
+                    doc2=doc2+'<div class="col-3of10 button" id="profileButton"> <p id="profileButtonText">ABOUT ME</p> <span id="profileButtonIcon" class="glyphicon glyphicon-user white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[j]=='experienceButton'){
                     doc2=doc2+'<div class="col-3of10 button cardLoaded" id="experienceButton"> <p id="experienceButtonText">EXPERIENCE</p> <span id="experienceButtonIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[j]=='projectWindow'){
-                    doc2=doc2+'<div class="col-3of10 button cardLoaded" id="projectWindow"> <p id="projectWindowText">PROJECTS</p> <span id="projectWindowIcon" class="glyphicon glyphicon-briefcase white" aria-hidden="true"></span> </div>';
+                    doc2=doc2+'<div class="col-3of10 button cardLoaded" id="projectWindow"> <p id="projectWindowText">PROJECTS</p> <span id="projectWindowIcon" class="glyphicon glyphicon-folder-close white" aria-hidden="true"></span> </div>';
                 }
                 else if(array[j]=='contactButton'){
                     doc2=doc2+'<div class="col-3of10 button" id="contactButton"> <p id="contactButtonText">CONTACT ME</p> <span id="contactButtonIcon" class="glyphicon glyphicon-send white" aria-hidden="true"></span> </div>';
@@ -548,17 +565,9 @@ $(document).ready(function () {
             document.getElementById('firstRow').innerHTML = doc1;
             document.getElementById('secondRow').innerHTML = doc2;
             enableClickListner();
-            console.log(doc1);
-            console.log(doc2);
-
+            //console.log(doc1);
+            //console.log(doc2);
         }
-
-        
-
-
-
-
-
     //end of doc
 });
 
