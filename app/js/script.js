@@ -17,6 +17,7 @@ $(document).ready(function () {
     var profileButtonMovement=[];
     var cards=['profileButton','experienceButton','projectWindow','contactButton','educationButton','resumeButton'];
     var browserStack=[];
+    var onCards=false;
     //animation that runs every 12 seconds
     setInterval(function(){
         //get the class on the main menu item
@@ -32,13 +33,23 @@ $(document).ready(function () {
             }
         }
         k=0;
-        //Run the shuffle animation if the screen of the window is greater than 550
-        if($(document).width()>550){
-            if(temp2=="active"){
-                shuffleCard2(cards[getRandomInt(0,5)],getRandomInt(2,4));
+        //Run the shuffle animation if the screen of the window is greater than 550 and the user is not hovering over a card
+        if (!onCards){
+            if($(document).width()>550){
+                if(temp2=="active"){
+                    shuffleCard2(cards[getRandomInt(0,5)],getRandomInt(2,4));
+                }
             }
         }
-    }, 12000);
+    }, 15000);
+    //when you enter the mainMenu set on cards variable to true 
+    document.getElementById("mainMenu").addEventListener("mouseenter", function(){
+       onCards=true;
+    });
+    //when you leave the mainMenu set on cards variable to false
+    document.getElementById("mainMenu").addEventListener("mouseleave", function(){
+        onCards=false;
+    });
     //Register onclick listener
     $("a").click(function(){
         var hrefValue=$(this).attr("href");
@@ -132,7 +143,7 @@ $(document).ready(function () {
             //If the resume tab is clicked then opena new tab with a link to the pdf file        
             else if (cardClicked=="RESUME"){
                 loadCard="Null"
-                var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume_2016_final.pdf?alt=media&token=a08c0cb3-694e-4c5e-b327-3feba9f75b4b", '_blank');
+                var win = window.open("https://firebasestorage.googleapis.com/v0/b/dolapo-websiteapi.appspot.com/o/Dolapos%20Resume_2016_final2.pdf?alt=media&token=40be1958-267f-498b-b2a5-c9e524722524", '_blank');
                 win.focus();
             }
             // Animate transition to detailed view.
