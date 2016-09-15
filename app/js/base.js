@@ -13,6 +13,13 @@ dplus.website.init= function (apiRoot){
     if (--apisToLoad == 0) {
       //Enable ui elements or data that needed to ensure a connection to the endpoint
       enableUiElements()
+      if(!experiencDataRecieved){
+          window.getExperience(myExperienceCallBack);
+      }
+      if(!projectDataRecieved){
+          //Call the get projects method and pass in a call back
+          window.getProjects(myProjectCallBack);
+      }
     }
   }
   apisToLoad = 1; // must match number of calls to gapi.client.load()
@@ -62,4 +69,5 @@ function getExperience(callback){
 function enableUiElements(){
   $("#projectWindow").addClass("cardLoaded");
   $("#experienceButton").addClass("cardLoaded");
+  
 }
