@@ -2,4 +2,6 @@
 
 #Folders to remove
 node_modules
+*.jar
+*.firebaserc
 
