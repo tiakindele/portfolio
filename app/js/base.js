@@ -69,5 +69,4 @@ function getExperience(callback){
 function enableUiElements(){
   $("#projectWindow").addClass("cardLoaded");
   $("#experienceButton").addClass("cardLoaded");
-  
 }
